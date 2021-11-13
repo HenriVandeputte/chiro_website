@@ -1,5 +1,5 @@
- #Website 
- ##voor Chiromeisjes Marke
+ # Website 
+ ## voor Chiromeisjes Marke
  
  ---
  
@@ -23,3 +23,5 @@ eerste navigatie
 ---
  
  We mochten zelf kiezen wat het doel zou zijn van de site en hebben besloten om een site te maken voor Chiromeisjes Marke.
+
+---
