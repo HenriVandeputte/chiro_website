@@ -1,4 +1,4 @@
- # Website 
+ # Website - Internet Aplicaties
  ## voor Chiromeisjes Marke
  
  Voor het vak Internetaplicaties hebben we als opdracht gekregen om een website te maken met verschillende elementen in.
