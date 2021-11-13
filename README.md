@@ -1,8 +1,6 @@
  # Website 
  ## voor Chiromeisjes Marke
  
- ---
- 
  Voor het vak Internetaplicaties hebben we als opdracht gekregen om een website te maken met verschillende elementen in.
 * Een MongoDB database met minstens 3 tabellen die beschikbaar is in de cloud.
 * Een bestaande CSS template (w3schools, semantic-ui, …). Zorg dat de web applicatie schaalbaar
