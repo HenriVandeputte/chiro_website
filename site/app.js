@@ -21,7 +21,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 var homeRouter = require('./routes/home');
 var usersRouter = require('./routes/users');
-var evenementenRouter = require('./routes/evenementen');
+var groepenRouter = require('./routes/groepen');
 var fotosRouter = require('./routes/fotos');
 var leidingRouter = require('./routes/leiding');
 var contacterenRouter = require('./routes/contacteren');
@@ -40,7 +40,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', homeRouter);
-app.use('/evenementen', evenementenRouter);
+app.use('/groepen', groepenRouter);
 app.use('/fotos', fotosRouter);
 app.use('/leiding', leidingRouter);
 app.use('/contacteren', contacterenRouter);
