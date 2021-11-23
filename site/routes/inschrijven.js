@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('inschrijven.pug');
+    res.render('inschrijven.pug', {title: 'inschrijven'});
 });
 
 module.exports = router;
