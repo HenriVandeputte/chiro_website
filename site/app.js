@@ -10,6 +10,7 @@ var evenementenRouter = require('./routes/evenementen');
 var fotosRouter = require('./routes/fotos');
 var leidingRouter = require('./routes/leiding');
 var contacterenRouter = require('./routes/contacteren');
+var inschrijfRouter = require('./routes/inschrijven');
 
 var app = express();
 
@@ -17,7 +18,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(logger('dev'));
+app.use(logger('dev')); 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -29,6 +30,7 @@ app.use('/fotos', fotosRouter);
 app.use('/leiding', leidingRouter);
 app.use('/contacteren', contacterenRouter);
 app.use('/users', usersRouter);
+app.use('/inschrijven', inschrijfRouter);
 
 
 // catch 404 and forward to error handler
