@@ -6,6 +6,8 @@ router.get('/', function(req, res, next) {
     res.render('groepen.pug', {title : 'Evenementen'});
 });
 
+
+
 //////////////////////////////////////////////////////
 
 module.exports = router;

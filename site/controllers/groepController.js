@@ -2,12 +2,12 @@ var Groep = require('../models/groep');
 
 
 exports.index = function(req, res) {
-    res.render('groepen.pug', {title : 'Evenementen'});
+    res.redirect('/');
 };
 
 // Display list of all Groeps.
 exports.groep_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: Groep list');
+    res.redirect('/groepen');
 };
 
 // Display detail page for a specific Groep.
