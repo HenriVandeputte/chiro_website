@@ -26,6 +26,7 @@ var fotosRouter = require('./routes/fotos');
 var leidingRouter = require('./routes/leiding');
 var contacterenRouter = require('./routes/contacteren');
 var inschrijfRouter = require('./routes/inschrijven');
+var catalogRouter = require('./routes/catalog');
 
 var app = express();
 
@@ -46,6 +47,7 @@ app.use('/leiding', leidingRouter);
 app.use('/contacteren', contacterenRouter);
 app.use('/users', usersRouter);
 app.use('/inschrijven', inschrijfRouter);
+app.use('/catalog', catalogRouter);
 
 
 // catch 404 and forward to error handler
