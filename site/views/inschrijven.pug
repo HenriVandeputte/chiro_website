@@ -10,6 +10,31 @@ style.
     body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 
+style.
+  .center{
+  position:absolute;
+  width:780px;
+  height:650px;
+  left:50%;
+  top:50%;
+  margin-left:-390px;
+  margin-top:-325px;
+  }
+
+
+//form
+
+form(class='center' action='' method='')
+  div
+    label(for='voornaam') voornaam
+    input#voornaam(type='text' name='voornaam' required='')
+  div
+    label(for='achternaam') achternaam
+    input#achternaam(type='text' name='achternaam' required='')
+  div
+    label(for='leeftijd') leeftijd
+    input#leeftijd(type='number' name='leeftijd' min='6' max='17' required='')
+  button(type='submit') Inschrijven!
 
 // Navbar
 .w3-top
@@ -18,7 +43,7 @@ style.
             i.fa.fa-bars
         a.w3-bar-item.w3-button.w3-hide-small.w3-padding-large.w3-hover-grayscale(href='/') Home
         a.w3-bar-item.w3-button.w3-hide-small.w3-padding-large.w3-hover-grayscale(href='/groepen') Groepen
-        a.w3-bar-item.w3-button.w3-padding-large.w3-white.w3-hover-white(href='/fotos') Foto&apos;s
+        a.w3-bar-item.w3-button.w3-hide-small.w3-padding-large.w3-hover-grayscale(href='/fotos') Foto&apos;s
         a.w3-bar-item.w3-button.w3-hide-small.w3-padding-large.w3-hover-grayscale(href='/leiding') Leiding
         a.w3-bar-item.w3-button.w3-hide-small.w3-padding-large.w3-hover-grayscale(href='/contacteren') Contacteren
     // Navbar on small screens
