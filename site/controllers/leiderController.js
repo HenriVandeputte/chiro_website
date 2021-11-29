@@ -2,7 +2,7 @@ var Leider = require('../models/leider');
 
 // Display list of all Leiding.
 exports.leider_list = function(req, res) {
-    res.redirect('/leiding');
+    res.send('NOT IMPLEMENTED: Leiding list');
 };
 
 // Display detail page for a specific Leiding.

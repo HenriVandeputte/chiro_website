@@ -65,7 +65,7 @@ router.post('/leider/:id/update', leider_controller.leider_update_post);
 router.get('/leider/:id', leider_controller.leider_detail);
 
 // GET request for list of all leiders.
-router.get('/leiding', leider_controller.leider_list);
+router.get('/leiders', leider_controller.leider_list);
 
 
 
