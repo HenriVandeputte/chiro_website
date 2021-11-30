@@ -6,9 +6,19 @@ link(rel='stylesheet' href='/stylesheets/style.css')
 link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato')
 link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat')
 link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+
+link(rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css')
+link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat')
+link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+
 style.
     body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+
+style.
+  body,h1 {font-family: "Montserrat", sans-serif}
+  img {margin-bottom: -7px}
+  .w3-row-padding img {margin-bottom: 12px}
 
 
 // Navbar
@@ -28,10 +38,37 @@ style.
         a.w3-bar-item.w3-button.w3-padding-large(href='/leiding') Leiding
         a.w3-bar-item.w3-button.w3-padding-large(href='/contacteren') Contacteren
 
-block content
-    h1= 'm'
-    p Momenteel is deze sectie #{title} nog niet ontworpen.
-
+// Header
+header.w3-center.w3-margin-bottom
+  h1
+    b SFEERBEELDEN
+  p.w3-padding-16
+    button.w3-button.w3-black(onclick='myFunction()') rooster aan/uit
+// Photo Grid
+#myGrid.w3-row(style='margin-bottom:128px')
+  .w3-third
+    img(src='https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/249012744_1907813826090553_4168149567721688887_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=174925&_nc_ohc=hCnTJ4YtcBAAX8nbiIi&_nc_ht=scontent-bru2-1.xx&oh=b75663f30aa7c7c2882b50f70670bb5c&oe=61AB07D6' style='width:100%')
+    img(src='https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/249012744_1907813826090553_4168149567721688887_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=174925&_nc_ohc=hCnTJ4YtcBAAX8nbiIi&_nc_ht=scontent-bru2-1.xx&oh=b75663f30aa7c7c2882b50f70670bb5c&oe=61AB07D6' style='width:100%')
+    img(src='https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/249012744_1907813826090553_4168149567721688887_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=174925&_nc_ohc=hCnTJ4YtcBAAX8nbiIi&_nc_ht=scontent-bru2-1.xx&oh=b75663f30aa7c7c2882b50f70670bb5c&oe=61AB07D6' style='width:100%')
+    img(src='https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/249012744_1907813826090553_4168149567721688887_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=174925&_nc_ohc=hCnTJ4YtcBAAX8nbiIi&_nc_ht=scontent-bru2-1.xx&oh=b75663f30aa7c7c2882b50f70670bb5c&oe=61AB07D6' style='width:100%')
+    img(src='https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/249012744_1907813826090553_4168149567721688887_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=174925&_nc_ohc=hCnTJ4YtcBAAX8nbiIi&_nc_ht=scontent-bru2-1.xx&oh=b75663f30aa7c7c2882b50f70670bb5c&oe=61AB07D6' style='width:100%')
+    img(src='https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/249012744_1907813826090553_4168149567721688887_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=174925&_nc_ohc=hCnTJ4YtcBAAX8nbiIi&_nc_ht=scontent-bru2-1.xx&oh=b75663f30aa7c7c2882b50f70670bb5c&oe=61AB07D6' style='width:100%')
+  .w3-third
+    img(src='https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/249012744_1907813826090553_4168149567721688887_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=174925&_nc_ohc=hCnTJ4YtcBAAX8nbiIi&_nc_ht=scontent-bru2-1.xx&oh=b75663f30aa7c7c2882b50f70670bb5c&oe=61AB07D6' style='width:100%')
+    img(src='https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/249012744_1907813826090553_4168149567721688887_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=174925&_nc_ohc=hCnTJ4YtcBAAX8nbiIi&_nc_ht=scontent-bru2-1.xx&oh=b75663f30aa7c7c2882b50f70670bb5c&oe=61AB07D6' style='width:100%')
+    img(src='https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/249012744_1907813826090553_4168149567721688887_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=174925&_nc_ohc=hCnTJ4YtcBAAX8nbiIi&_nc_ht=scontent-bru2-1.xx&oh=b75663f30aa7c7c2882b50f70670bb5c&oe=61AB07D6' style='width:100%')
+    img(src='https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/249012744_1907813826090553_4168149567721688887_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=174925&_nc_ohc=hCnTJ4YtcBAAX8nbiIi&_nc_ht=scontent-bru2-1.xx&oh=b75663f30aa7c7c2882b50f70670bb5c&oe=61AB07D6' style='width:100%')
+    img(src='https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/249012744_1907813826090553_4168149567721688887_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=174925&_nc_ohc=hCnTJ4YtcBAAX8nbiIi&_nc_ht=scontent-bru2-1.xx&oh=b75663f30aa7c7c2882b50f70670bb5c&oe=61AB07D6' style='width:100%')
+    img(src='https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/249012744_1907813826090553_4168149567721688887_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=174925&_nc_ohc=hCnTJ4YtcBAAX8nbiIi&_nc_ht=scontent-bru2-1.xx&oh=b75663f30aa7c7c2882b50f70670bb5c&oe=61AB07D6' style='width:100%')
+  .w3-third
+    img(src='https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/249012744_1907813826090553_4168149567721688887_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=174925&_nc_ohc=hCnTJ4YtcBAAX8nbiIi&_nc_ht=scontent-bru2-1.xx&oh=b75663f30aa7c7c2882b50f70670bb5c&oe=61AB07D6' style='width:100%')
+    img(src='https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/249012744_1907813826090553_4168149567721688887_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=174925&_nc_ohc=hCnTJ4YtcBAAX8nbiIi&_nc_ht=scontent-bru2-1.xx&oh=b75663f30aa7c7c2882b50f70670bb5c&oe=61AB07D6' style='width:100%')
+    img(src='https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/249012744_1907813826090553_4168149567721688887_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=174925&_nc_ohc=hCnTJ4YtcBAAX8nbiIi&_nc_ht=scontent-bru2-1.xx&oh=b75663f30aa7c7c2882b50f70670bb5c&oe=61AB07D6' style='width:100%')
+    img(src='https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/249012744_1907813826090553_4168149567721688887_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=174925&_nc_ohc=hCnTJ4YtcBAAX8nbiIi&_nc_ht=scontent-bru2-1.xx&oh=b75663f30aa7c7c2882b50f70670bb5c&oe=61AB07D6' style='width:100%')
+    img(src='https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/249012744_1907813826090553_4168149567721688887_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=174925&_nc_ohc=hCnTJ4YtcBAAX8nbiIi&_nc_ht=scontent-bru2-1.xx&oh=b75663f30aa7c7c2882b50f70670bb5c&oe=61AB07D6' style='width:100%')
+    img(src='https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/249012744_1907813826090553_4168149567721688887_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=174925&_nc_ohc=hCnTJ4YtcBAAX8nbiIi&_nc_ht=scontent-bru2-1.xx&oh=b75663f30aa7c7c2882b50f70670bb5c&oe=61AB07D6' style='width:100%')
+// End Page Content
+  
     
 script.
 
@@ -42,5 +79,15 @@ script.
             x.className += " w3-show";
         } else {
             x.className = x.className.replace(" w3-show", "");
+        }
+    }
+
+    // Toggle grid padding
+    function myFunction() {
+        var x = document.getElementById("myGrid");
+        if (x.className === "w3-row") {
+            x.className = "w3-row-padding";
+        } else {
+            x.className = x.className.replace("w3-row-padding", "w3-row");
         }
     }
