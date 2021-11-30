@@ -4,6 +4,7 @@
     padding: 0;
 }
 
+
 body {
     background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-2210775-jpeg.jpg") center center no-repeat;
     background-size: cover;
@@ -21,6 +22,17 @@ body {
     box-shadow: 15px 15px 1px #ffa580, 15px 15px 1px 2px black;
 }
 
+h1 {
+    color: #000000;
+    font-family: 'Trocchi',
+    serif; font-size: 45px;
+    font-weight: normal;
+    line-height: 48px;
+    margin: 0;
+    border-bottom: 2px solid black;
+    margin-bottom: 28pt;
+}
+
 input {
     display: block;
     width: 100%;
@@ -36,6 +48,8 @@ input {
     outline: none;
     color: black;
 }
+
+
 
 input:focus {
     border-bottom: 5px solid #ffa580;
