@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h1= title
+
+    ul
+        each groep in groep_list
+            li
+                a #{groep.naam}
+
+
+        else
+            li There are no groups.

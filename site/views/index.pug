@@ -2,4 +2,20 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Welcome to #[em Catalog home page].
+
+  h1 Dynamic content
+
+  if error
+    p Error getting dynamic content.
+  else
+    p The catalog has the following record counts:
+
+    ul
+      li
+        a(href='/catalog/groepen') #[strong Groepen:] !{data.groep_count}
+      li
+        a(href='/catalog/leiders') #[strong Leiding:] !{data.leider_count}
+      li
+        a(href='/catalog/leden') #[strong Leden:] !{data.lid_count}
+

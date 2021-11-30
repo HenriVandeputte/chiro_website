@@ -1,14 +1,35 @@
 var Groep = require('../models/groep');
+var Leider = require('../models/leider');
+var Lid = require('../models/lid');
+
+var async = require('async');
 
 
+exports.index = function(req, res) {
+    async.parallel({
+        groep_count: function (callback){
+            Groep.countDocuments({}, callback);
+        },
+        leider_count: function (callback){
+            Leider.countDocuments({}, callback);
+        },
+        lid_count: function (callback){
+            Lid.countDocuments({}, callback);
+        }
+    }, function (err, results){
+        res.render('index', {title: 'Local catalog home', error: err, data: results});
+        });
+};
 
 
 // Display list of all Groeps.
 exports.groep_list = function(req, res, next) {
-    Groep.find().sort([['naam', 'ascending']]).exec(function (err, list_groepen) {
+
+    Groep.find({}, 'naam').sort({naam : 1}).exec(function (err, list_groepen) {
         if (err) { return next(err); }
         //succesful, so render
-        res.render('groepen', {title: 'Groepen list', groep_list: list_groepen});
+
+        res.render('groep_list', {title: 'Group list', groep_list: list_groepen});
     });
 };
 
