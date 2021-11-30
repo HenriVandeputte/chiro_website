@@ -6,6 +6,11 @@ link(rel='stylesheet' href='/stylesheets/style.css')
 link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato')
 link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat')
 link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+
+link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+link(rel='stylesheet' href='/stylesheet/styleContact.css')
+
+
 style.
     body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
@@ -20,7 +25,8 @@ style.
         a.w3-bar-item.w3-button.w3-hide-small.w3-padding-large.w3-hover-grayscale(href='/groepen') Groepen
         a.w3-bar-item.w3-button.w3-hide-small.w3-padding-large.w3-hover-grayscale(href='/fotos') Foto&apos;s
         a.w3-bar-item.w3-button.w3-hide-small.w3-padding-large.w3-hover-grayscale(href='/leiding') Leiding
-        a.w3-bar-item.w3-button.w3-padding-large.w3-white.w3-hover-white(href='/contacteren') Contacteren
+         a.w3-bar-item.w3-button.w3-padding-large.w3-white.w3-hover-white(href='/contacteren') Contacteren
+
     // Navbar on small screens
     #navDemo.w3-bar-block.w3-white.w3-hide.w3-hide-large.w3-hide-medium.w3-large
         a.w3-bar-item.w3-button.w3-padding-large(href='/groepen') Groepen
@@ -28,11 +34,19 @@ style.
         a.w3-bar-item.w3-button.w3-padding-large(href='/leiding') Leiding
         a.w3-bar-item.w3-button.w3-padding-large(href='/contacteren') Contacteren
 
-block content
-    h1= 'm'
-    p Momenteel is de sectie #{title} nog niet ontworpen.
 
-    iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1224.7413038335637!2d3.231794806506031!3d50.80786103266026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c33ab116decc19%3A0xd2da61a030d4c689!2sMarkekerkstraat%208%2C%208510%20Kortrijk!5e0!3m2!1snl!2sbe!4v1637693382081!5m2!1snl!2sbe' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy')
+
+script.
+
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
 
     
 
