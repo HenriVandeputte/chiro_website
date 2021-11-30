@@ -45,7 +45,6 @@ exports.groep_create_get = function(req, res, next) {
     res.render('groep_form', { title: 'Create Groep' });
 };
 
-
 // Handle Groep create on POST.
 exports.groep_create_post =  [
 
@@ -71,13 +70,13 @@ exports.groep_create_post =  [
         else {
             // Data from form is valid.
             // Check if Groep with same name already exists.
-            Groep.findOne({ 'name': req.body.name })
+            Groep.findOne({ 'naam': req.body.name })
                 .exec( function(err, found_groep) {
                     if (err) { return next(err); }
 
                     if (found_groep) {
                         // groep exists, redirect to catalog home page.
-                        res.redirect('/catalog');
+                        res.redirect('/catalog/groepen');
                     }
                     else {
 
