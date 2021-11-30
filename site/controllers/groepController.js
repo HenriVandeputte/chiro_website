@@ -30,7 +30,6 @@ exports.groep_list = function(req, res, next) {
     Groep.find({}, 'naam').sort({naam : 1}).exec(function (err, list_groepen) {
         if (err) { return next(err); }
         //succesful, so render
-
         res.render('groep_list', {title: 'Group list', groep_list: list_groepen});
     });
 };
@@ -49,7 +48,7 @@ exports.groep_create_get = function(req, res, next) {
 exports.groep_create_post =  [
 
     // Validate and santize the name field.
-    body('name', 'Groep name required').trim().isLength({ min: 1 }).escape(),
+    body('name').trim().isLength({ min: 1 }).escape().withMessage('Name must be specified.'),
 
     // Process request after validation and sanitization.
     (req, res, next) => {
@@ -57,7 +56,7 @@ exports.groep_create_post =  [
         // Extract the validation errors from a request.
         const errors = validationResult(req);
 
-        // Create a genre object with escaped and trimmed data.
+        // Create a groep object with escaped and trimmed data.
         var groep = new Groep(
             { naam: req.body.name }
         );
@@ -73,21 +72,17 @@ exports.groep_create_post =  [
             Groep.findOne({ 'naam': req.body.name })
                 .exec( function(err, found_groep) {
                     if (err) { return next(err); }
-
                     if (found_groep) {
                         // groep exists, redirect to catalog home page.
                         res.redirect('/catalog/groepen');
                     }
                     else {
-
                         groep.save(function (err) {
                             if (err) { return next(err); }
                             // Groep saved. Redirect to catalog home page.
-                            res.redirect('/catalog');
+                            res.redirect('/catalog/groepen');
                         });
-
                     }
-
                 });
         }
     }
