@@ -24,17 +24,16 @@ style.
 
 
 //form
-form(class='center' action='' method='')
-  div
-    label(for='voornaam') voornaam
-    input#voornaam(type='text' name='voornaam' required='')
-  div
-    label(for='achternaam') achternaam
-    input#achternaam(type='text' name='achternaam' required='')
-  div
-    label(for='leeftijd') leeftijd
-    input#leeftijd(type='number' name='leeftijd' min='6' max='17' required='')
-  button(type='submit') Inschrijven!
+form(class='center' method='POST' action='' )
+    div
+        label(for='naam') Naam
+        input#naam(type='text', name='naam', required='')
+    div
+        label(for='leeftijd') leeftijd
+        input#leeftijd(type='number' name='leeftijd' min='6' max='17' required='')
+    button(type='submit') Inschrijven!
+
+
 
 // Navbar
 .w3-top
@@ -54,6 +53,10 @@ form(class='center' action='' method='')
         a.w3-bar-item.w3-button.w3-padding-large(href='/leiding') Leiding
         a.w3-bar-item.w3-button.w3-padding-large(href='/contacteren') Contacteren
 
+
+
+
+
 script.
 
     // Used to toggle the menu on small screens when clicking on the menu button
@@ -65,3 +68,5 @@ script.
             x.className = x.className.replace(" w3-show", "");
         }
     }
+
+

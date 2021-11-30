@@ -5,7 +5,7 @@ var Groep = require("../models/groep");
 
 // Display list of all Leden.
 exports.lid_list = function(req, res) {
-    Lid.find({}, 'naam').sort({naam : 1}).exec(function (err, list_leden) {
+    Lid.find({}, 'naam leeftijd').sort({naam : 1}).exec(function (err, list_leden) {
         if (err) { return next(err); }
         //succesful, so render
 

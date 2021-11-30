@@ -3,7 +3,6 @@ var router = express.Router();
 var Lid = require('../models/lid')
 const { body,validationResult } = require('express-validator');
 
-var async = require('async');
 
 // Display lid create form on GET.
 router.get('/', function(req, res, next) {
@@ -12,7 +11,7 @@ router.get('/', function(req, res, next) {
 
 // Handle Groep create on POST.
 router.post('/', [
-    body('name').trim().isLength({min: 1}).escape().withMessage('Naam moet ingevuld zijn.'),
+    body('naam').trim().isLength({min: 1}).escape().withMessage('Naam moet ingevuld zijn.'),
 
     (req, res, next ) => {
 
@@ -21,7 +20,7 @@ router.post('/', [
         var lid = new Lid(
             {
                 naam: req.body.naam,
-                geboorteDatum: req.body.geboorteDatum
+                leeftijd: req.body.leeftijd
             }
         );
 
@@ -33,12 +32,12 @@ router.post('/', [
             Lid.findOne({ 'naam': req.body.name}).exec(function (err, found_lid){
                     if(err){return next(err);}
                     if(found_lid){
-                        res.redirect('');
+                        res.redirect('/');
                     }
                     else {
                         lid.save(function (err){
                             if (err) {return next(err);}
-                            res.redirect('');
+                            res.redirect('/');
                         });
                     }
                 }
