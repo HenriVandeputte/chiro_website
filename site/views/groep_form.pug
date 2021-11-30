@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1 #{title}
+
+    form(method='POST' action='')
+        div.form-group
+            label(for='name') Groep:
+            input#name.form-control(type='text', placeholder='Zwoebers, Kwiks etc.' name='name' value=(undefined===groep ? '' : groep.naam))
+        button.btn.btn-primary(type='submit') Submit
+
+    if errors
+        ul
+            for error in errors
+                li!= error.msg
