@@ -11,9 +11,6 @@ var lid_controller = require('../controllers/lidController');
 
 /// GROEP ROUTES ///
 
-// GET catalog home page.
-router.get('/', groep_controller.index);
-
 // GET request for creating a groep. NOTE This must come before routes that display Book (uses id).
 router.get('/groep/create', groep_controller.groep_create_get);
 
