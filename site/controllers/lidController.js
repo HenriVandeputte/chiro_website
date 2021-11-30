@@ -1,8 +1,14 @@
 var Lid = require('../models/lid');
 
+
 // Display list of all Leden.
 exports.lid_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: Leden list');
+    Lid.find({}, 'naam').sort({naam : 1}).exec(function (err, list_leden) {
+        if (err) { return next(err); }
+        //succesful, so render
+
+        res.render('lid_list', {title: 'Leden list', leden_list: list_leden});
+    });
 };
 
 // Display detail page for a specific Lid.

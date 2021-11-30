@@ -7,6 +7,8 @@ var leider_controller = require('../controllers/leiderController');
 var lid_controller = require('../controllers/lidController');
 
 
+// GET catalog home page.
+router.get('/', groep_controller.index);  //This actually maps to /catalog/ because we import the route with a /catalog prefix
 
 
 /// GROEP ROUTES ///
