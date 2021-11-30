@@ -1,6 +1,8 @@
 var Groep = require('../models/groep');
 var Leider = require('../models/leider');
-var Lid = require('../models/lid');
+var Lid = require('../models/lid')
+const { body,validationResult } = require('express-validator');
+
 
 var async = require('async');
 
@@ -39,14 +41,59 @@ exports.groep_detail = function(req, res) {
 };
 
 // Display Groep create form on GET.
-exports.groep_create_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Groep create GET');
+exports.groep_create_get = function(req, res, next) {
+    res.render('groep_form', { title: 'Create Groep' });
 };
 
+
 // Handle Groep create on POST.
-exports.groep_create_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Groep create POST');
-};
+exports.groep_create_post =  [
+
+    // Validate and santize the name field.
+    body('name', 'Groep name required').trim().isLength({ min: 1 }).escape(),
+
+    // Process request after validation and sanitization.
+    (req, res, next) => {
+
+        // Extract the validation errors from a request.
+        const errors = validationResult(req);
+
+        // Create a genre object with escaped and trimmed data.
+        var groep = new Groep(
+            { naam: req.body.name }
+        );
+
+        if (!errors.isEmpty()) {
+            // There are errors. Render the form again with sanitized values/error messages.
+            res.render('groep_form', { title: 'Create Groep', groep: groep, errors: errors.array()});
+            return;
+        }
+        else {
+            // Data from form is valid.
+            // Check if Groep with same name already exists.
+            Groep.findOne({ 'name': req.body.name })
+                .exec( function(err, found_groep) {
+                    if (err) { return next(err); }
+
+                    if (found_groep) {
+                        // groep exists, redirect to catalog home page.
+                        res.redirect('/catalog');
+                    }
+                    else {
+
+                        groep.save(function (err) {
+                            if (err) { return next(err); }
+                            // Groep saved. Redirect to catalog home page.
+                            res.redirect('/catalog');
+                        });
+
+                    }
+
+                });
+        }
+    }
+];
+
 
 // Display Groep delete form on GET.
 exports.groep_delete_get = function(req, res) {

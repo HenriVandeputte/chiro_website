@@ -5,7 +5,7 @@ var Groep = require('../models/groep');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    Groep.find({}, 'naam').sort({naam : 1}).exec(function (err, list_groepen) {
+    Groep.find({}, 'naam ').sort({naam : 1}).exec(function (err, list_groepen) {
         if (err) { return next(err); }
         //succesful, so render
 
