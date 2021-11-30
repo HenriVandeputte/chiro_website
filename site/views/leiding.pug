@@ -10,6 +10,66 @@ style.
     body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 
+style.
+  body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  }
+  html {
+  box-sizing: border-box;
+  }
+  *, *:before, *:after {
+  box-sizing: inherit;
+  }
+  .column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+  }
+  .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+  }
+  .about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #de032a;
+  color: white;
+  }
+  .container {
+  padding: 0 16px;
+  }
+  .container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+  }
+  .title {
+  color: grey;
+  }
+  .button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  }
+  .button:hover {
+  background-color: #555;
+  }
+  @media screen and (max-width: 650px) {
+  .column {
+  width: 100%;
+  display: block;
+  }
+  }
+
+
 
 // Navbar
 .w3-top
@@ -29,22 +89,22 @@ style.
         a.w3-bar-item.w3-button.w3-padding-large(href='/contacteren') Contacteren
 
 .about-section
-  h1 LEIDING CHIROMEISJES MARKE 2021-22
-  p Met trots stellen wij u de leidingsbende van 2020-21 voor.
+  h1 LEIDING CHIROMEISJES MARKE 2021-'22
+  p Met trots stellen wij u de leidingsbende van 2021-'22 voor.
 .row
   .column
     .card
-      img(src='/w3images/team1.jpg' alt='Jane' style='width:100%')
+      img(src='https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/249012744_1907813826090553_4168149567721688887_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=174925&_nc_ohc=hCnTJ4YtcBAAX8nbiIi&_nc_ht=scontent-bru2-1.xx&oh=b75663f30aa7c7c2882b50f70670bb5c&oe=61AB07D6' alt='Jane' style='width:100%')
       .container
-        h2 Jane Doe
-        p.title CEO &amp; Founder
+        h2 Emma Deleu
+        p.title Hoofdleiding 
         p Some text that describes me lorem ipsum ipsum lorem.
         p jane@example.com
         p
           button.button Contact
   .column
     .card
-      img(src='/w3images/team2.jpg' alt='Mike' style='width:100%')
+      img(src="/emma.jpg" alt='Mike' style='width:100%')
       .container
         h2 Mike Ross
         p.title Art Director
