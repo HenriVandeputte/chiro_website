@@ -4,8 +4,12 @@ var Groep = require('../models/groep');
 
 
 // Display list of all Groeps.
-exports.groep_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: Groep list');
+exports.groep_list = function(req, res, next) {
+    Groep.find().sort([['naam', 'ascending']]).exec(function (err, list_groepen) {
+        if (err) { return next(err); }
+        //succesful, so render
+        res.render('groepen', {title: 'Groepen list', groep_list: list_groepen});
+    });
 };
 
 // Display detail page for a specific Groep.

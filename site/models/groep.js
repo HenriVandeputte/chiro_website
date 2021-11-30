@@ -12,6 +12,6 @@ module.exports = mongoose.model('Groep', Schema(
             naam: {type: String, required: true},
             leeftijd: {type: Array, required: true},
             leider: [{type: Schema.Types.ObjectId, ref: 'Leider'}],
-            leden: [{type: Schema.Types.ObjectId, ref: 'Lid'}],
+            lid: [{type: Schema.Types.ObjectId, ref: 'Lid'}],
     }
 ));

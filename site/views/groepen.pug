@@ -29,4 +29,15 @@ style.
 
 block content
     h1= 'm'
-    p Momenteel is de sectie #{title} nog niet ontworpen.
+
+
+block content
+    h1= title
+
+    ul
+        each groep in groep_list
+            li
+            a #{groep.naam}
+
+        else
+            li Der zijn geen groepen.
