@@ -6,8 +6,7 @@ block content
     ul
         each groep in groep_list
             li
-                a #{groep.naam}
-
+                a(href=groep.url) #{groep.naam}
 
         else
             li There are no groups.

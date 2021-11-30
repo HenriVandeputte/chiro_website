@@ -19,18 +19,6 @@ router.get('/groep/create', groep_controller.groep_create_get);
 // POST request for creating groep.
 router.post('/groep/create', groep_controller.groep_create_post);
 
-// GET request to delete groep.
-router.get('/groep/:id/delete', groep_controller.groep_delete_get);
-
-// POST request to delete groep.
-router.post('/groep/:id/delete', groep_controller.groep_delete_post);
-
-// GET request to update groep.
-router.get('/groep/:id/update', groep_controller.groep_update_get);
-
-// POST request to update groep.
-router.post('/groep/:id/update', groep_controller.groep_update_post);
-
 // GET request for one groep.
 router.get('/groep/:id', groep_controller.groep_detail);
 

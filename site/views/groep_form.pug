@@ -1,15 +1,13 @@
-extends layout
+doctype html
 
-block content
-    h1 #{title}
+link(rel='stylesheet' href='/stylesheets/inschrijfStyle.css')
 
+//form
+.contact-us
     form(method='POST' action='')
-        div
-            label(for='name') Groep:
-            input#name(type='text', name='name')
-        button(type='submit') Submit
+        h1 Groepen Toevoegen
+        input#naam(type='text', placeholder='Naam', name='naam', required='')
+        input#leeftijd(type='number' placeholder='Leeftijd' name ='leeftijd' min='6' max='17' required='')
+        button(type='submit') Toevoegen!
 
-    if errors
-        ul
-            for error in errors
-                li!= error.msg
+

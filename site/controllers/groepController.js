@@ -2,8 +2,6 @@ var Groep = require('../models/groep');
 var Leider = require('../models/leider');
 var Lid = require('../models/lid')
 const { body,validationResult } = require('express-validator');
-
-
 var async = require('async');
 
 
@@ -35,8 +33,22 @@ exports.groep_list = function(req, res, next) {
 };
 
 // Display detail page for a specific Groep.
-exports.groep_detail = function(req, res) {
-    res.send('NOT IMPLEMENTED: Groep detail: ' + req.params.id);
+exports.groep_detail = function(req, res, next) {
+
+    async.parallel({
+        groep: function (callback){
+            Groep.findById(req.params.id).exec(callback)
+        },
+    }, function(err, results) {
+        if (err) { return next(err); } // Error in API usage.
+        if (results.groep==null) { // No results.
+            var err = new Error('Geen groep gevonden');
+            err.status = 404;
+            return next(err);
+        }
+        // Successful, so render.
+        res.render('groep_detail', { title: 'Groep Detail', groep: results.groep} );
+    });
 };
 
 // Display Groep create form on GET.
@@ -89,22 +101,4 @@ exports.groep_create_post =  [
 ];
 
 
-// Display Groep delete form on GET.
-exports.groep_delete_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Groep delete GET');
-};
 
-// Handle Groep delete on POST.
-exports.groep_delete_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Groep delete POST');
-};
-
-// Display Groep update form on GET.
-exports.groep_update_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Groep update GET');
-};
-
-// Handle Groep update on POST.
-exports.groep_update_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Groep update POST');
-};
