@@ -81,6 +81,7 @@ style.
         a.w3-bar-item.w3-button.w3-hide-small.w3-padding-large.w3-hover-grayscale(href='/fotos') Foto&apos;s
         a.w3-bar-item.w3-button.w3-padding-large.w3-white.w3-hover-white(href='/leiding') Leiding
         a.w3-bar-item.w3-button.w3-hide-small.w3-padding-large.w3-hover-grayscale(href='/contacteren') Contacteren
+
     // Navbar on small screens
     #navDemo.w3-bar-block.w3-white.w3-hide.w3-hide-large.w3-hide-medium.w3-large
         a.w3-bar-item.w3-button.w3-padding-large(href='/groepen') Groepen
@@ -98,27 +99,39 @@ style.
       .container
         h2 Emma Deleu
         p.title Hoofdleiding 
-        p Some text that describes me lorem ipsum ipsum lorem.
-        p jane@example.com
+        p Hallo ik ben emma en ik houd van plezier maken
+        p emma.deleu@gmail.com
         p
           button.button Contact
   .column
     .card
-      img(src="/emma.jpg" alt='Mike' style='width:100%')
+      img(src="https://scontent-bru2-1.xx.fbcdn.net/v/t1.6435-9/92393300_1591061304381854_6942143837401776128_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=174925&_nc_ohc=p-OjvxMGcrMAX9w-feS&_nc_ht=scontent-bru2-1.xx&oh=15c2ddf53d5fef783a55cb404d2a328c&oe=61CB6852" alt='Mike' style='width:100%')
       .container
-        h2 Mike Ross
-        p.title Art Director
-        p Some text that describes me lorem ipsum ipsum lorem.
-        p mike@example.com
+        h2 Elise Vanhoonacker
+        p.title leidster aspi's
+        p Ik ben Elise en ik studeer mode aan de vives
+        p elise.Vanhoonacker@outlook.com
         p
           button.button Contact
   .column
     .card
-      img(src='/w3images/team3.jpg' alt='John' style='width:100%')
+      img(src='https://scontent-bru2-1.xx.fbcdn.net/v/t1.6435-9/52557694_1961279867331468_8841256570420461568_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=174925&_nc_ohc=FeZhBiGYq7MAX_HwX7x&_nc_ht=scontent-bru2-1.xx&oh=b55b23724c6d10dbc92e1fc5bf2eec0d&oe=61CD9638' alt='John' style='width:100%')
       .container
-        h2 John Doe
-        p.title Designer
-        p Some text that describes me lorem ipsum ipsum lorem.
+        h2 Hanne Santy
+        p.title leiding speelclub
+        p Dag lieve kindjes. Mijn naam is Santy en ik houd van stenen en aarde
         p john@example.com
         p
           button.button Contact
+
+script.
+
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }

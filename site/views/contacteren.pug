@@ -25,7 +25,8 @@ style.
         a.w3-bar-item.w3-button.w3-hide-small.w3-padding-large.w3-hover-grayscale(href='/groepen') Groepen
         a.w3-bar-item.w3-button.w3-hide-small.w3-padding-large.w3-hover-grayscale(href='/fotos') Foto&apos;s
         a.w3-bar-item.w3-button.w3-hide-small.w3-padding-large.w3-hover-grayscale(href='/leiding') Leiding
-        a.w3-bar-item.w3-button.w3-padding-large.w3-white.w3-hover-white(href='/contacteren') Contacteren
+         a.w3-bar-item.w3-button.w3-padding-large.w3-white.w3-hover-white(href='/contacteren') Contacteren
+
     // Navbar on small screens
     #navDemo.w3-bar-block.w3-white.w3-hide.w3-hide-large.w3-hide-medium.w3-large
         a.w3-bar-item.w3-button.w3-padding-large(href='/groepen') Groepen
@@ -35,7 +36,17 @@ style.
 
 
 
+script.
 
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
 
     
 
