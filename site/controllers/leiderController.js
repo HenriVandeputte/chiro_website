@@ -1,8 +1,14 @@
 var Leider = require('../models/leider');
 
+
 // Display list of all Leiding.
 exports.leider_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: Leiding list');
+    Leider.find({}, 'naam').sort({naam : 1}).exec(function (err, list_leiders) {
+        if (err) { return next(err); }
+        //succesful, so render
+
+        res.render('leider_list', {title: 'Leider list', leider_list: list_leiders});
+    });
 };
 
 // Display detail page for a specific Leiding.

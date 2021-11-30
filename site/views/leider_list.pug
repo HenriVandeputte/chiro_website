@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h1= title
+
+    ul
+        each leider in leider_list
+            li
+                a #{leider.naam}
+
+
+        else
+            li There are no leiders.
