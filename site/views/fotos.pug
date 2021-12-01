@@ -37,7 +37,7 @@ header.w3-center.w3-margin-bottom.w3-margin-top
   h1.w3-margin-top
     b SFEERBEELDEN
   p.w3-padding-16
-    button.w3-button.w3-black(onclick='myFunction()') rooster aan/uit
+    button.w3-button.w3-black(onclick='toggle()') rooster aan/uit
 // Photo Grid
 #myGrid.w3-row(style='margin-bottom:128px')
   .w3-third
@@ -78,7 +78,7 @@ script.
     }
 
     // Toggle grid padding
-    function myFunction() {
+    function toggle() {
         var x = document.getElementById("myGrid");
         if (x.className === "w3-row") {
             x.className = "w3-row-padding";
