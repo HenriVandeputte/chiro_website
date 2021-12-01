@@ -60,7 +60,7 @@ exports.groep_create_get = function(req, res, next) {
 exports.groep_create_post =  [
 
     // Validate and santize the name field.
-    body('name').trim().isLength({ min: 1 }).escape().withMessage('Name must be specified.'),
+    body('naam').trim().isLength({ min: 1 }).escape().withMessage('Name must be specified.'),
 
     // Process request after validation and sanitization.
     (req, res, next) => {
@@ -70,7 +70,7 @@ exports.groep_create_post =  [
 
         // Create a groep object with escaped and trimmed data.
         var groep = new Groep(
-            { naam: req.body.name }
+            { naam: req.body.naam }
         );
 
         if (!errors.isEmpty()) {

@@ -6,14 +6,20 @@ var GroepSchema = new Schema(
     {
         naam: {type: String, required: true },
         leeftijd: {type: Array },
+        leeftijdString: {type: String},
         leiding: [{type: Schema.Types.ObjectId, ref: 'Leider'}],
         leden: [{type: Schema.Types.ObjectId, ref: 'Lid'}],
+        nummer: {type: Number},
+        beschrijving: {type: String}
     }
 )
 
 GroepSchema.virtual('url').get(function (){
-    return 'catalog/groep/' + this._id;
+    return 'groepen/' + this._id;
 })
 
+GroepSchema.virtual('image').get(function (){
+    return '/images/logos/' + this.naam + '.png';
+})
 
 module.exports = mongoose.model('Groep', GroepSchema);
