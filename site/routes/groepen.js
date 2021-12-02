@@ -6,7 +6,7 @@ const async = require("async");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    Groep.find({}, 'naam leeftijdString beschrijving').sort({nummer : 1}).exec(function (err, list_groepen) {
+    Groep.find({}, 'naam leeftijdString beschrijving orde').sort({orde : 1}).exec(function (err, list_groepen) {
         if (err) { return next(err); }
         //succesful, so render
 

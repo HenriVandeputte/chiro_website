@@ -9,7 +9,7 @@ var GroepSchema = new Schema(
         leeftijdString: {type: String},
         leiding: [{type: Schema.Types.ObjectId, ref: 'Leider'}],
         leden: [{type: Schema.Types.ObjectId, ref: 'Lid'}],
-        nummer: {type: Number},
+        orde: {type: String},
         beschrijving: {type: String}
     }
 )
