@@ -56,15 +56,15 @@ div
             p <withline>Aantal leden:</withline>   #{groep.leden.length}
             a(href='/leiding' style='all: none;text-decoration: none;')
                 p <withline>Leiding:</withline>
-                each val, index in groep.leiding
-                    if(index == 0)
-                        text  #{val.naam},
-                    else if (index < groep.leiding.length - 2)
-                        text  #{val.naam},
-                    else if (index < groep.leiding.length - 1)
-                        text  #{val.naam} en
-                    else
-                        text  #{val.naam}
+                    each val, index in groep.leiding
+                        if(index == 0)
+                            text  #{val.naam},
+                        else if (index < groep.leiding.length - 2)
+                            text  #{val.naam},
+                        else if (index < groep.leiding.length - 1)
+                            text  #{val.naam} en
+                        else
+                            text  #{val.naam}
 
 
             p <withline>Beschrijving:</withline> <br>
