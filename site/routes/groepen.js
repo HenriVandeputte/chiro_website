@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
         if (err) { return next(err); }
         //succesful, so render
 
-        res.render('groepen', {title: 'Groepen list', groep_list: list_groepen});
+        res.render('groepen', {groep_list: list_groepen});
     });
 });
 
