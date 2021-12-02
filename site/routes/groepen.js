@@ -19,7 +19,7 @@ router.get('/:id', function(req, res, next) {
 
     async.parallel({
         groep: function (callback){
-            Groep.findById(req.params.id).exec(callback)
+            Groep.findById(req.params.id).populate('leden').populate('leiding').exec(callback)
         },
     }, function(err, results) {
         if (err) { return next(err); } // Error in API usage.
