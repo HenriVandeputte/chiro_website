@@ -13,18 +13,19 @@ style.
 
     div {margin: 0px;}
 
-    ul {list-style-type:none;width:80%;margin:10%;}
+    ul {list-style-type: none;width: 80%;margin: 10%;}
 
-    h3 {font: bold 30px/1.5 Helvetica, Verdana, sans-serif;margin-left:270px }
+    h3 {font: bold 30px/1.5 Helvetica, Verdana, sans-serif;margin-left: 270px}
 
-    img {float:left;margin:40px;height:200px;}
+    img {float: left;margin: 40px;height: 200px;}
 
-    p {font: 200 17px/1.5 Helvetica, Verdana, sans-serif; margin-left:270px }
-    withline {text-decoration: underline; font: 200 17px/1.5 Helvetica, Verdana, sans-serif; }
+    withline {text-decoration: underline;font: 200 17px/1.5 Helvetica, Verdana, sans-serif;}
 
-    li {background: rgba(222, 3, 42, 0.20); margin:2%;padding: 10px;overflow: auto;}
+    p {font: 200 17px/1.5 Helvetica, Verdana, sans-serif;margin-left: 270px}
 
-    li:hover {background: rgba(222, 3, 42, 0.20);cursor: pointer;}
+    li {background: rgba(222, 3, 42, 0.20); margin: 2%; padding: 10px;overflow: auto; }
+
+    li:hover {background: rgba(222, 3, 42, 0.20);}
 
 
 // Navbar
@@ -52,13 +53,21 @@ div
             img(src=groep.image )
             h3 #{groep.naam}
             p <withline>Leeftijd:</withline> #{groep.leeftijdString}
-            p <withline>Leiding:</withline>
-                each val, index in groep.leiding
-                    p #{val.naam}
-                    if index < groep.leiding.length - 1
-                        | ,
             p <withline>Aantal leden:</withline>   #{groep.leden.length}
-            p(style='margin-top:10px;') <withline>Beschrijving:</withline>
+            a(href='/leiding' style='all: none;text-decoration: none;')
+                p <withline>Leiding:</withline>
+                each val, index in groep.leiding
+                    if(index == 0)
+                        text  #{val.naam},
+                    else if (index < groep.leiding.length - 2)
+                        text  #{val.naam},
+                    else if (index < groep.leiding.length - 1)
+                        text  #{val.naam} en
+                    else
+                        text  #{val.naam}
+
+
+            p <withline>Beschrijving:</withline> <br>
             p #{groep.beschrijving}
 
 
