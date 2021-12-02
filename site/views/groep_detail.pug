@@ -20,7 +20,7 @@ style.
     img {float:left;margin:40px;height:200px;}
 
     p {font: 200 17px/1.5 Helvetica, Verdana, sans-serif; margin-left:270px }
-    p-withline {text-decoration: underline; font: 200 17px/1.5 Helvetica, Verdana, sans-serif; }
+    withline {text-decoration: underline; font: 200 17px/1.5 Helvetica, Verdana, sans-serif; }
 
     li {margin:2%;padding: 10px;overflow: auto;}
 
@@ -48,14 +48,13 @@ div.w3-top
 
 div
     ul
-
         li
             img(src=groep.image )
             h3 #{groep.naam}
-            p <p-withline>Leeftijd:</p-withline> #{groep.leeftijdString}
-            p <p-withline>Leiding:</p-withline>
-            p <p-withline>Aantal leden:</p-withline>
-            p(style='margin-top:10px;') <p-withline>Beschrijving:</p-withline>
+            p <withline>Leeftijd:</withline> #{groep.leeftijdString}
+            p <withline>Leiding:</withline>
+            p <withline>Aantal leden:</withline>
+            p(style='margin-top:10px;') <withline>Beschrijving:</withline>
             p #{groep.beschrijving}
 
 

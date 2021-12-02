@@ -18,8 +18,9 @@ style.
     h3 {font: bold 30px/1.5 Helvetica, Verdana, sans-serif;margin-left:270px }
     img {float:left;margin:40px;height:200px;}
 
+
+    withline {text-decoration: underline; font: 200 17px/1.5 Helvetica, Verdana, sans-serif; }
     p {font: 200 17px/1.5 Helvetica, Verdana, sans-serif; margin-left:270px }
-    p-withline {text-decoration: underline; font: 200 17px/1.5 Helvetica, Verdana, sans-serif; }
 
     li {margin:2%;padding: 10px;overflow: auto;}
 
@@ -52,8 +53,8 @@ div
                 a(href=groep.url style='all: none;text-decoration: none;')
                     img(src=groep.image )
                     h3 #{groep.naam}
-                    p <p-withline>Leeftijd:</p-withline> #{groep.leeftijdString}
-                    p(style='margin-top:10px;') <p-withline>Beschrijving:</p-withline>
+                    p <withline>Leeftijd:</withline> #{groep.leeftijdString}
+                    p(style='margin-top:10px;') <withline>Beschrijving:</withline>
                     p #{groep.beschrijving}
         else
             li Er zijn geen groepen
