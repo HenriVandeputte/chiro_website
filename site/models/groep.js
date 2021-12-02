@@ -15,7 +15,7 @@ var GroepSchema = new Schema(
 )
 
 GroepSchema.virtual('url').get(function (){
-    return 'groepen/' + this._id;
+    return '/groepen/' + this._id;
 })
 
 GroepSchema.virtual('image').get(function (){

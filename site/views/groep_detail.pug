@@ -1,5 +1,72 @@
-extends layout
+doctype html
+title Chiromeisjes Marke
+meta(charset='UTF-8')
+meta(name='viewport' content='width=device-width, initial-scale=1')
 
-block content
-    h1 Title: #{groep.naam}
+link(rel='stylesheet' href='/stylesheets/style.css')
+link(rel='stylesheet' href='/stylesheets/GroepenStyle.css')
+link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
 
+style.
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+    .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+
+    div {margin: 0px;}
+
+    ul {list-style-type:none;width:80%;margin:10%;}
+
+    h3 {font: bold 30px/1.5 Helvetica, Verdana, sans-serif;margin-left:270px }
+
+    img {float:left;margin:40px;height:200px;}
+
+    p {font: 200 17px/1.5 Helvetica, Verdana, sans-serif; margin-left:270px }
+    p-withline {text-decoration: underline; font: 200 17px/1.5 Helvetica, Verdana, sans-serif; }
+
+    li {margin:2%;padding: 10px;overflow: auto;}
+
+    li:hover {background: #eee;cursor: pointer;}
+
+
+// Navbar
+div.w3-top
+    .w3-bar.w3-red.w3-card.w3-left-align.w3-large
+        a.w3-bar-item.w3-button.w3-hide-medium.w3-hide-large.w3-right.w3-padding-large.w3-hover-white.w3-large.w3-red(href='javascript:void(0);' onclick='myFunction()' title='Toggle Navigation Menu')
+            i.fa.fa-bars
+        a.w3-bar-item.w3-button.w3-hide-small.w3-padding-large.w3-hover-grayscale(href='/') Home
+        a.w3-bar-item.w3-button.w3-padding-large.w3-white.w3-hover-white(href='/groepen') Groepen
+        a.w3-bar-item.w3-button.w3-hide-small.w3-padding-large.w3-hover-grayscale(href='/fotos') Foto&apos;s
+        a.w3-bar-item.w3-button.w3-hide-small.w3-padding-large.w3-hover-grayscale(href='/leiding') Leiding
+        a.w3-bar-item.w3-button.w3-hide-small.w3-padding-large.w3-hover-grayscale(href='/contacteren') Contacteren
+
+    // Navbar on small screens
+    #navDemo.w3-bar-block.w3-white.w3-hide.w3-hide-large.w3-hide-medium.w3-large
+        a.w3-bar-item.w3-button.w3-padding-large(href='/') Home
+        a.w3-bar-item.w3-button.w3-padding-large(href='/fotos') Foto&apos;s
+        a.w3-bar-item.w3-button.w3-padding-large(href='/leiding') Leiding
+        a.w3-bar-item.w3-button.w3-padding-large(href='/contacteren') Contacteren
+
+
+div
+    ul
+
+        li
+            img(src=groep.image )
+            h3 #{groep.naam}
+            p <p-withline>Leeftijd:</p-withline> #{groep.leeftijdString}
+            p <p-withline>Leiding:</p-withline>
+            p <p-withline>Aantal leden:</p-withline>
+            p(style='margin-top:10px;') <p-withline>Beschrijving:</p-withline>
+            p #{groep.beschrijving}
+
+
+script.
+
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }

@@ -6,7 +6,7 @@ const async = require("async");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    Groep.find({}, 'naam leeftijdString').sort({nummer : 1}).exec(function (err, list_groepen) {
+    Groep.find({}, 'naam leeftijdString beschrijving').sort({nummer : 1}).exec(function (err, list_groepen) {
         if (err) { return next(err); }
         //succesful, so render
 
@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.get('/groep/id:', function(req, res, next) {
+router.get('/:id', function(req, res, next) {
 
     async.parallel({
         groep: function (callback){
@@ -29,10 +29,10 @@ router.get('/groep/id:', function(req, res, next) {
             return next(err);
         }
         // Successful, so render.
-        res.render('groep_detail', { title: 'Groep Detail', groep: results.groep} );
+        res.render('groep_detail', { groep: results.groep} );
     });
 })
 
-//////////////////////////////////////////////////////
+
 
 module.exports = router;
