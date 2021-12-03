@@ -1,6 +1,5 @@
 var Leider = require('../models/leider');
 const {body, validationResult} = require("express-validator");
-const Lid = require("../models/lid");
 const Groep = require("../models/groep");
 
 
@@ -9,7 +8,6 @@ exports.leider_list = function(req, res) {
     Leider.find({}).sort({naam : 1}).exec(function (err, list_leiders) {
         if (err) { return next(err); }
         //succesful, so render
-
         res.render('DataPugs/leider_list', {title: 'Leider list', leider_list: list_leiders});
     });
 };
@@ -21,15 +19,17 @@ exports.leider_detail = function(req, res) {
 
 // Display Leiding create form on GET.
 exports.leider_create_get = function(req, res, next) {
-    res.render('DataPugs/leider_add');
+    res.render('DataPugs/leider_form');
 };
 
 // Handle Leiding create on POST.
 exports.leider_create_post =[
-    body('voornaam').trim().isLength({min: 1}).escape().withMessage('Vooraam moet ingevuld zijn.'),
-    body('achternaam').trim().isLength({min: 1}).escape().withMessage('Achternaam moet ingevuld zijn.'),
-    body('email').trim().isLength({min: 1}).escape().withMessage('Email moet ingevuld zijn.'),
-    body('fotolink').trim().isLength({min: 1}).escape().withMessage('Fotolink moet ingevuld zijn.'),
+    body('voornaam').trim().isLength({min: 1}).escape(),
+    body('achternaam').trim().isLength({min: 1}).escape(),
+    body('leeftijd').trim().escape(),
+    body('groep').trim().isLength({min: 1}).escape(),
+    body('fotolink').trim().isLength({min: 1}).escape(),
+
 
     (req, res, next ) => {
 
@@ -46,22 +46,22 @@ exports.leider_create_post =[
         );
 
         if(!errors.isEmpty()){
-            res.render('DataPugs/leider_add', {lid: lid, errors: errors.array()});
+            res.render('DataPugs/leider_form', {leider: leider, errors: errors.array()});
         }
         else{
             Leider.findOne({'voornaam': req.body.voornaam, 'achternaam': req.body.achternaam}).exec(function (err, found_leider){
                     if(err){return next(err);}
                     if(found_leider){
-                        res.redirect('/leiders/');
+                        res.redirect('/data/leiding/');
                     }
                     else {
-                        Leider.save(function (err){
+                        leider.save(function (err){
                             if (err) {return next(err);}
-                            res.redirect('/leiders/');
+                            res.redirect('/data/leiding/');
                         });
                         Groep.findOneAndUpdate(
                             { 'naam': req.body.groep },
-                            { $push: {leiders : leider } },
+                            { $push: {leiding : leider._id } },
                             function (error, success) {
                                 if (error) {return next(error);}
                             }

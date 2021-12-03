@@ -8,10 +8,9 @@ var LeiderSchema = new Schema(
         achternaam: {type: String, required: true},
         leeftijd: {type: Number, required: true},
         groep: {type: String, required: true, enum: ['Zwoebers', 'Speelclub', 'Kwiks', 'Tippers', 'Tiptiens', 'Aspies', 'Hoofdleiding']},
+        fotolink: {type: String, required: true }
     }
 );
-
-
 
 LeiderSchema.virtual('naam').get(function (){
     return this.voornaam + ' ' + this.achternaam;

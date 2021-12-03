@@ -17,7 +17,7 @@ exports.index = function(req, res) {
             Lid.countDocuments({}, callback);
         }
     }, function (err, results){
-        res.render('DataPugs/index', {title: 'Local catalog home', error: err, data: results});
+        res.render('DataPugs/index', {title: 'Data van Meisjeschiro Marke', error: err, data: results});
         });
 };
 
