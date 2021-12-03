@@ -5,11 +5,11 @@ var Groep = require("../models/groep");
 
 // Display list of all Leden.
 exports.lid_list = function(req, res) {
-    Lid.find({}, 'naam leeftijd').sort({naam : 1}).exec(function (err, list_leden) {
+    Groep.find({}).sort({orde : 1}).populate('leden').exec(function (err, list_groepen) {
         if (err) { return next(err); }
         //succesful, so render
 
-        res.render('DataPugs/lid_list', {title: 'Leden list', leden_list: list_leden});
+        res.render('DataPugs/lid_list', {title: 'Leden list', groepen_list: list_groepen});
     });
 };
 

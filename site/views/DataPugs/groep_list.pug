@@ -10,10 +10,10 @@ block content
                 p leeftijd : #{groep.leeftijdString}
                 p leiding:
                     each val,index in groep.leiding
-                        p #{val.voornaam}
+                        text  #{val.naam},
                 p leden:
                     each val, index in groep.leden
-                        p #{val.voornaam}
+                        text  #{val.naam},
                 p beschrijving: #{groep.beschrijving}
 
 

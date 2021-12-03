@@ -4,9 +4,12 @@ block content
     h1= title
 
     ul
-        each lid in leden_list
+        each groep in groepen_list
             li
-                a #{lid.naam}
-                    #{lid.leeftijd}
-        else
-            li There are no leden.
+                h2 #{groep.naam}
+                each val in groep.leden
+                    p naam: #{val.naam}
+                        text(style='margin-left:150px;') leeftijd: #{val.leeftijd} jaar
+                            text(style='margin-left:150px;') Email Contactpersoon: #{val.email}
+                else
+                    li Er zijn geen leden in deze groep.
