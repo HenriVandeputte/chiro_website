@@ -31,6 +31,11 @@ style.
         a.w3-bar-item.w3-button.w3-padding-large(href='/fotos') Foto&apos;s
         a.w3-bar-item.w3-button.w3-padding-large(href='/leiding') Leiding
 
+    // facebook api
+    #fb-root 
+    script(async='' defer='' crossorigin='anonymous' src='https://connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v12.0' nonce='g46rG5Ft')
+  
+
 
 section.ftco-section
   .container
@@ -46,19 +51,17 @@ section.ftco-section
                 ul
                   li WANNEER: elke zondag van 14h tot 17h30
                   li BETALINGEN: Rekeningnummer: BE86 7755 7063 4550
-                  li.invisible 
-                  li.invisible 
-                  li.invisible 
-                  li.invisible 
-                  li.invisible 
-                  li.invisible 
-                  li.invisible 
-                  li.invisible 
+                  li Volg onze Facebookpagina voor het laatste nieuws!
+                  .fb-page(data-href='https://www.facebook.com/Chiromeisjes-Marke-839222196166401' data-tabs='timeline' data-width='700' data-height='400' data-small-header='true' data-adapt-container-width='true' data-hide-cover='true' data-show-facepile='true')
+                    blockquote.fb-xfbml-parse-ignore(cite='https://www.facebook.com/Chiromeisjes-Marke-839222196166401')
+                      a(href='https://www.facebook.com/Chiromeisjes-Marke-839222196166401') Chiromeisjes Marke
+
+
 
 
             .col-md-5.d-flex.align-items-stretch
               div
-                iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.264693212376!2d3.230151415712967!3d50.80773436943711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c33ab1138c933d%3A0xbd3e112cc39a497!2sDe%20Krinkel!5e0!3m2!1snl!2sbe!4v1638368711228!5m2!1snl!2sbe' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy')
+                iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2521.264693212376!2d3.230151415712967!3d50.80773436943711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c33ab1138c933d%3A0xbd3e112cc39a497!2sDe%20Krinkel!5e0!3m2!1snl!2sbe!4v1638368711228!5m2!1snl!2sbe' width='600' height='650' style='border:0;' allowfullscreen='' loading='lazy')
           .row
             .col-md-6
               .dbox.w-100.text-center
