@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Lid = require('../models/lid')
+var Groep = require('../models/groep')
 const { body,validationResult } = require('express-validator');
 
 
@@ -24,9 +25,10 @@ router.post('/', [
             }
         );
 
+
+
         if(!errors.isEmpty()){
             res.render('inschrijven', {title: 'Inschrijven van lid', lid: lid, errors: errors.array()});
-            return;
         }
         else{
             Lid.findOne({ 'naam': req.body.name}).exec(function (err, found_lid){
@@ -39,6 +41,13 @@ router.post('/', [
                             if (err) {return next(err);}
                             res.redirect('/');
                         });
+                        Groep.findOneAndUpdate(
+                            { 'leeftijd': req.body.leeftijd },
+                            { $push: {leden : lid } },
+                            function (error, success) {
+                                if (error) {return next(error);}
+                            }
+                    )
                     }
                 }
             );
