@@ -7,9 +7,7 @@ var LeiderSchema = new Schema(
         voornaam: {type: String, required: true},
         achternaam: {type: String, required: true},
         leeftijd: {type: Number, required: true},
-        functie: {type: Schema.Types.ObjectId },
-
-
+        groep: {type: String, required: true, enum: ['Zwoebers', 'Speelclub', 'Kwiks', 'Tippers', 'Tiptiens', 'Aspies', 'Hoofdleiding']},
     }
 );
 

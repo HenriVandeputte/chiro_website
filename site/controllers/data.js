@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 // Require controller modules.
-var groep_controller = require('../controllers/groepController');
-var leider_controller = require('../controllers/leiderController');
-var lid_controller = require('../controllers/lidController');
+var groep_controller = require('./groepController');
+var leider_controller = require('./leiderController');
+var lid_controller = require('./lidController');
 
 
 // GET catalog home page.

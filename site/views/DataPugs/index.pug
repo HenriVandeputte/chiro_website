@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #[em the Server Data home page].
+
+  h1 Dynamic content
+
+  if error
+    p Error getting dynamic content.
+  else
+    p The servers has the following record counts:
+
+    ul
+      li
+        a(href='/data/groepen') #[strong Groepen:] !{data.groep_count}
+      li
+        a(href='/data/leiders') #[strong Leiding:] !{data.leider_count}
+      li
+        a(href='/data/leden') #[strong Leden:] !{data.lid_count}
+

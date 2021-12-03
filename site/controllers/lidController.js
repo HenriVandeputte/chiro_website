@@ -9,7 +9,7 @@ exports.lid_list = function(req, res) {
         if (err) { return next(err); }
         //succesful, so render
 
-        res.render('lid_list', {title: 'Leden list', leden_list: list_leden});
+        res.render('DataPugs/lid_list', {title: 'Leden list', leden_list: list_leden});
     });
 };
 

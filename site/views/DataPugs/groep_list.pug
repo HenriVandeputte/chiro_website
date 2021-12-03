@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    h1= title
+
+    ul
+        each groep in groep_list
+            li
+                h2 #{groep.naam}
+                p leeftijd : #{groep.leeftijdString}
+                p leiding:
+                    each val,index in groep.leiding
+                        p #{val.voornaam}
+                p leden:
+                    each val, index in groep.leden
+                        p #{val.voornaam}
+                p beschrijving: #{groep.beschrijving}
+
+
+
+
+        else
+            li There are no groups.

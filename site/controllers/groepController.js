@@ -2,7 +2,7 @@ var Groep = require('../models/groep');
 var Leider = require('../models/leider');
 var Lid = require('../models/lid')
 const { body,validationResult } = require('express-validator');
-var async = require('async');
+const async = require('async');
 
 
 exports.index = function(req, res) {
@@ -17,7 +17,7 @@ exports.index = function(req, res) {
             Lid.countDocuments({}, callback);
         }
     }, function (err, results){
-        res.render('index', {title: 'Local catalog home', error: err, data: results});
+        res.render('DataPugs/index', {title: 'Local catalog home', error: err, data: results});
         });
 };
 
@@ -25,10 +25,10 @@ exports.index = function(req, res) {
 // Display list of all Groeps.
 exports.groep_list = function(req, res, next) {
 
-    Groep.find({}, 'naam').sort({naam : 1}).exec(function (err, list_groepen) {
+    Groep.find({}, 'naam leeftijdString beschrijving orde').sort({orde : 1}).populate('leden').populate('leiding').exec(function (err, list_groepen) {
         if (err) { return next(err); }
         //succesful, so render
-        res.render('groep_list', {title: 'Group list', groep_list: list_groepen});
+        res.render('DataPugs/groep_list', {title: 'Groepen', groep_list: list_groepen});
     });
 };
 
@@ -47,13 +47,13 @@ exports.groep_detail = function(req, res, next) {
             return next(err);
         }
         // Successful, so render.
-        res.render('groep_detail', { title: 'Groep Detail', groep: results.groep} );
+        res.render('DataPugs/groep_detail', { title: 'Groep Detail', groep: results.groep} );
     });
 };
 
 // Display Groep create form on GET.
 exports.groep_create_get = function(req, res, next) {
-    res.render('groep_form', { title: 'Create Groep' });
+    res.render('DataPugs/groep_form', { title: 'Create Groep' });
 };
 
 // Handle Groep create on POST.
@@ -75,7 +75,7 @@ exports.groep_create_post =  [
 
         if (!errors.isEmpty()) {
             // There are errors. Render the form again with sanitized values/error messages.
-            res.render('groep_form', { title: 'Create Groep', groep: groep, errors: errors.array()});
+            res.render('DataPugs/groep_form', { title: 'Create Groep', groep: groep, errors: errors.array()});
             return;
         }
         else {
@@ -86,19 +86,18 @@ exports.groep_create_post =  [
                     if (err) { return next(err); }
                     if (found_groep) {
                         // groep exists, redirect to catalog home page.
-                        res.redirect('/catalog/groepen');
+                        res.redirect('/data/groepen');
                     }
                     else {
                         groep.save(function (err) {
                             if (err) { return next(err); }
                             // Groep saved. Redirect to catalog home page.
-                            res.redirect('/catalog/groepen');
+                            res.redirect('/data/groepen');
                         });
                     }
                 });
         }
     }
 ];
-
 
 
