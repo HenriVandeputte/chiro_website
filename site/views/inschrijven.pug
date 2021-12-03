@@ -6,6 +6,8 @@ link(rel='stylesheet' href='/stylesheets/inschrijfStyle.css')
 .contact-us
     form(method='POST' action='')
         h1 Chiromeisjes Marke
-        input#naam(type='text', placeholder='Naam', name='naam', required='')
+        input#voornaam(type='text', placeholder='Voornaam', name='voornaam', required='')
+        input#achternaam(type='text', placeholder='Achternaam', name='achternaam', required='')
         input#leeftijd(type='number' placeholder='Leeftijd' name ='leeftijd' min='6' max='17' required='')
+        input#email(type='email', placeholder='Email contactpersoon', name='email', required='')
         button(type='submit') Inschrijven!

@@ -7,12 +7,14 @@ const { body,validationResult } = require('express-validator');
 
 // Display lid create form on GET.
 router.get('/', function(req, res, next) {
-    res.render('inschrijven.pug', {title: 'inschrijven'});
+    res.render('inschrijven.pug');
 });
 
 // Handle Groep create on POST.
 router.post('/', [
-    body('naam').trim().isLength({min: 1}).escape().withMessage('Naam moet ingevuld zijn.'),
+    body('voornaam').trim().isLength({min: 1}).escape().withMessage('Vooraam moet ingevuld zijn.'),
+        body('achternaam').trim().isLength({min: 1}).escape().withMessage('Achternaam moet ingevuld zijn.'),
+        body('email').trim().isLength({min: 1}).escape().withMessage('Email moet ingevuld zijn.'),
 
     (req, res, next ) => {
 
@@ -20,18 +22,18 @@ router.post('/', [
 
         var lid = new Lid(
             {
-                naam: req.body.naam,
-                leeftijd: req.body.leeftijd
+                voornaam: req.body.voornaam,
+                achternaam: req.body.achternaam,
+                leeftijd: req.body.leeftijd,
+                email: req.body.email
             }
         );
 
-
-
         if(!errors.isEmpty()){
-            res.render('inschrijven', {title: 'Inschrijven van lid', lid: lid, errors: errors.array()});
+            res.render('inschrijven', {lid: lid, errors: errors.array()});
         }
         else{
-            Lid.findOne({ 'naam': req.body.name}).exec(function (err, found_lid){
+            Lid.findOne({'voornaam': req.body.voornaam, 'achternaam': req.body.achternaam}).exec(function (err, found_lid){
                     if(err){return next(err);}
                     if(found_lid){
                         res.redirect('/');
