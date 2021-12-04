@@ -1,6 +1,7 @@
 var Leider = require('../models/leider');
 const {body, validationResult} = require("express-validator");
 const Groep = require("../models/groep");
+const async = require("async");
 
 
 // Display list of all Leiding.
@@ -10,11 +11,6 @@ exports.leider_list = function(req, res) {
         //succesful, so render
         res.render('DataPugs/leider_list', {title: 'Leidsters', groepen_list: list_groepen});
     });
-};
-
-// Display detail page for a specific Leiding.
-exports.leider_detail = function(req, res) {
-    res.send('NOT IMPLEMENTED: Leiding detail: ' + req.params.id);
 };
 
 // Display Leiding create form on GET.
@@ -72,15 +68,45 @@ exports.leider_create_post =[
     }
 ]
 
-// Display Leiding delete form on GET.
-exports.leider_delete_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Leiding delete GET');
+// Display Leider delete form on GET.
+exports.leider_delete_get = function(req, res, next) {
+
+    async.parallel({
+        leider: function(callback) {
+
+        }
+    }, function(err, results) {
+        if (err) { return next(err); }
+        if (Leider.findById(req.params.id).exec(callback)==null) { // No results.
+            res.redirect('/data/leiding');
+        }
+        // Successful, so render.
+        res.render('DataPugs/leider_delete', {leider: results.leider} );
+    });
+
 };
 
 // Handle Leiding delete on POST.
-exports.leider_delete_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Leiding delete POST');
+exports.leider_delete_post = function(req, res, next) {
+
+    async.parallel({
+        leider: function(callback) {
+            Leider.findById(req.body.leiderid).exec(callback)
+        },
+    }, function(err, results) {
+        if (err) { return next(err); }
+        // Success
+        else {
+            // Author has no books. Delete object and redirect to the list of authors.
+            Leider.findByIdAndRemove(req.body.leiderid, function deleteleider(err) {
+                if (err) { return next(err); }
+                // Success - go to author list
+                res.redirect('/data/leiding')
+            })
+        }
+    });
 };
+
 
 // Display Leiding update form on GET.
 exports.leider_update_get = function(req, res) {

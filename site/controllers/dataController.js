@@ -37,19 +37,18 @@ router.get('/leider/create', leider_controller.leider_create_get);
 router.post('/leider/create', leider_controller.leider_create_post);
 
 // GET request to delete leider.
-router.get('/leider/:id/delete', leider_controller.leider_delete_get);
+router.get('/leider/:id/delete', leider_controller.leider_delete_post);
 
 // POST request to delete leider.
 router.post('/leider/:id/delete', leider_controller.leider_delete_post);
+
+
 
 // GET request to update leider.
 router.get('/leider/:id/update', leider_controller.leider_update_get);
 
 // POST request to update leider.
 router.post('/leider/:id/update', leider_controller.leider_update_post);
-
-// GET request for one leider.
-router.get('/leider/:id', leider_controller.leider_detail);
 
 // GET request for list of all leiders.
 router.get('/leiding', leider_controller.leider_list);

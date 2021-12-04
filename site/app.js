@@ -26,7 +26,7 @@ var fotosRouter = require('./routes/fotos');
 var leidingRouter = require('./routes/leiding');
 var contacterenRouter = require('./routes/contacteren');
 var inschrijfRouter = require('./routes/inschrijven');
-var dataRouter = require('./controllers/data');
+var dataRouter = require('./controllers/dataController');
 
 var app = express();
 

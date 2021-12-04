@@ -16,4 +16,8 @@ LeiderSchema.virtual('naam').get(function (){
     return this.voornaam + ' ' + this.achternaam;
 })
 
+LeiderSchema.virtual('url').get(function (){
+    return 'leider/' + this.id ;
+})
+
 module.exports = mongoose.model('Leider', LeiderSchema);
