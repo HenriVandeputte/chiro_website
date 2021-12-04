@@ -3,21 +3,40 @@ extends layout
 block content
     h1= title
 
-    ul
+    ul(style='list-style-type:none;width:80%;')
         each groep in groep_list
-            li
-                h2 #{groep.naam}
-                p leeftijd : #{groep.leeftijdString}
-                p leiding:
-                    each val,index in groep.leiding
-                        text  #{val.naam},
-                p leden:
-                    each val, index in groep.leden
-                        text  #{val.naam},
-                p beschrijving: #{groep.beschrijving}
+            li(style='background: #eeee; margin: 2%; padding: 10px;overflow: auto; ')
+                    img(src=groep.image style='float:right;margin:40px;height:200px;' )
+                    h3(style='font: bold 30px/1.5 Helvetica, Verdana, sans-serif;') #{groep.naam}
+                    p <withline>Leeftijd:</withline> #{groep.leeftijdString}
+                    a(href='/data/leiding' style='all: none;text-decoration: none;')
+                        p <withline>Leiding:</withline>
+                            each val, index in groep.leiding
+                                if(index == 0)
+                                    text  #{val.naam},
+                                else if (index < groep.leiding.length - 2)
+                                    text  #{val.naam},
+                                else if (index < groep.leiding.length - 1)
+                                    text  #{val.naam} en
+                                else
+                                    text  #{val.naam}
 
-
-
-
+                    a(href='/data/leden' style='all: none;text-decoration: none;')
+                        p <withline>Leden:</withline>
+                            each val, index in groep.leden
+                                if(index == 0)
+                                    text  #{val.naam},
+                                else if (index < groep.leiding.length - 2)
+                                    text  #{val.naam},
+                                else if (index < groep.leiding.length - 1)
+                                    text  #{val.naam} en
+                                else
+                                    text  #{val.naam}
+                    p <withline>Beschrijving:</withline>
+                    p #{groep.beschrijving}
         else
-            li There are no groups.
+            li Er zijn geen groepen
+
+
+
+

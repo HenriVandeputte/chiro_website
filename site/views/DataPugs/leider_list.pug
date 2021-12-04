@@ -4,13 +4,27 @@ extends layout
 block content
     h1= title
 
-    ul
-        each leider in leider_list
-            li(style='margin:2%;padding: 10px;overflow: auto;background: rgba(222, 3, 42, 0.20); margin-right: 25%;')
-                img(src=leider.fotolink style='width: 100px;float:right;margin-right:5%;')
-                p(style='font: bold 20px/1.5 Helvetica, Verdana, sans-serif;') #{leider.naam}
-                p leeftijd: #{leider.leeftijd} jaar
-                p Groep: #{leider.groep}
+        each groep in groepen_list
+            h3(style='font: bold 30px/1.5 Helvetica, Verdana, sans-serif;') #{groep.naam}
+            ul(style='list-style-type:none;width:80%;')
+                each val, index in groep.leiding
+                    div(class=row)
+                    if(index%2==0)
+                        div(class='col-sm-10')
+                            li(style='background: #eeee; margin: 2%; padding: 10px;overflow: auto; ')
+                                img(src=val.fotolink style='float:right;margin:40px;height:200px;' )
+                                p(style='font: bold 20px/1.5 Helvetica, Verdana, sans-serif;') #{val.naam}
+                                p <withline>Leeftijd:</withline> #{val.leeftijd}
+                                p <withline>Groep:</withline> #{val.groep}
+                    else if(index%2==1)
+                        div(class='col-sm-10')
+                            li(style='background: #eeee; margin: 2%; padding: 10px;overflow: auto; ')
+                                img(src=val.fotolink style='float:right;margin:40px;height:200px;' )
+                                p(style='font: bold 20px/1.5 Helvetica, Verdana, sans-serif;') #{val.naam}
+                                p <withline>Leeftijd:</withline> #{val.leeftijd}
+                                p <withline>Groep:</withline> #{val.groep}
+
+
 
 
 

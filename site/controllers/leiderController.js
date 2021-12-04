@@ -5,10 +5,10 @@ const Groep = require("../models/groep");
 
 // Display list of all Leiding.
 exports.leider_list = function(req, res) {
-    Leider.find({}).sort({naam : 1}).exec(function (err, list_leiders) {
+    Groep.find({}).sort({orde : 1}).populate('leiding').exec(function (err, list_groepen) {
         if (err) { return next(err); }
         //succesful, so render
-        res.render('DataPugs/leider_list', {title: 'Leider list', leider_list: list_leiders});
+        res.render('DataPugs/leider_list', {title: 'Leider list', groepen_list: list_groepen});
     });
 };
 
