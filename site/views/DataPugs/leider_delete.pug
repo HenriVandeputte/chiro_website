@@ -1,0 +1,16 @@
+doctype html
+
+
+
+link(rel='stylesheet' href='/stylesheets/inschrijfStyle.css')
+
+
+//form
+button
+    a(href='/data') Home
+.contact-us
+    form(method='POST' action='')
+        h1(style='font-weight: bold;') Bestaande Leider Verwijderen
+        h3 #{leider.naam}
+        input#leiderid(type='hidden',name='leiderid', required='true', value=leider._id )
+        button(type='submit') Deze persoon verwijderen.
