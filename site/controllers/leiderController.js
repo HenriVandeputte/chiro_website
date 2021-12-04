@@ -8,7 +8,7 @@ exports.leider_list = function(req, res) {
     Groep.find({}).sort({orde : 1}).populate('leiding').exec(function (err, list_groepen) {
         if (err) { return next(err); }
         //succesful, so render
-        res.render('DataPugs/leider_list', {title: 'Leider list', groepen_list: list_groepen});
+        res.render('DataPugs/leider_list', {title: 'Leidsters', groepen_list: list_groepen});
     });
 };
 

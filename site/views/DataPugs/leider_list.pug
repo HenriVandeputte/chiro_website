@@ -2,23 +2,23 @@ extends layout
 
 
 block content
-    h1= title
+    h1(style='font: bold 40px/1.5 Helvetica, Verdana, sans-serif;')= title
 
         each groep in groepen_list
-            h3(style='font: bold 30px/1.5 Helvetica, Verdana, sans-serif;') #{groep.naam}
+            h3(style='font: 30px/1.5 Helvetica, Verdana, sans-serif; margin-left: 2%;') #{groep.naam}
             ul(style='list-style-type:none;width:80%;')
                 each val, index in groep.leiding
                     div(class='row')
                     if(index%2==0)
                         div(class='column')
-                            li(style='background: #eeee; margin: 2%; padding: 10px;overflow: auto; ')
-                                img(src=val.fotolink style='float:right;margin:40px;height:200px;' )
+                            li(style='border: 4px solid black;background: #ffa680; margin: 2%; padding: 10px;overflow: auto; ')
+                                img(src=val.fotolink style='border: 2px solid black;float:right;margin:40px;height:200px;' )
                                 p(style='font: bold 20px/1.5 Helvetica, Verdana, sans-serif;') #{val.naam}
                                 p <withline>Leeftijd:</withline> #{val.leeftijd}
                                 p <withline>Groep:</withline> #{val.groep}
                     else if(index%2==1)
                         div(class='column')
-                            li(style='background: #eeee; margin: 2%; padding: 10px;overflow: auto; ')
+                            li(style='border: 4px dotted blue;background: #ffa680; margin: 2%; padding: 10px;overflow: auto; ')
                                 img(src=val.fotolink style='float:right;margin:40px;height:200px;' )
                                 p(style='font: bold 20px/1.5 Helvetica, Verdana, sans-serif;') #{val.naam}
                                 p <withline>Leeftijd:</withline> #{val.leeftijd}

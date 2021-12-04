@@ -1,11 +1,11 @@
 extends layout
 
 block content
-    h1= title
+    h1(style='font: bold 40px/1.5 Helvetica, Verdana, sans-serif;')= title
 
     ul(style='list-style-type:none;width:80%;')
         each groep in groep_list
-            li(style='background: #eeee; margin: 2%; padding: 10px;overflow: auto; ')
+            li(style='border: 4px solid black;background: #ffa680; margin: 2%; padding: 10px;overflow: auto; ')
                     img(src=groep.image style='float:right;margin:40px;height:200px;' )
                     h3(style='font: bold 30px/1.5 Helvetica, Verdana, sans-serif;') #{groep.naam}
                     p <withline>Leeftijd:</withline> #{groep.leeftijdString}

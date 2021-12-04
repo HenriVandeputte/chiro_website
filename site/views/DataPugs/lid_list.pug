@@ -1,14 +1,14 @@
 extends layout
 
 block content
-    h1= title
+    h1(style='font: bold 40px/1.5 Helvetica, Verdana, sans-serif;')= title
 
-    ul
+    ul(style='list-style: none;')
         each groep in groepen_list
-            li
-                h2 #{groep.naam}
+            h2 #{groep.naam}
+            li(style='border: 4px solid black;background: #ffa680;width:80%; margin: 2%; padding: 10px;')
                 each val in groep.leden
-                    div(class='row')
+                    div(class='row' style='margin:1%;')
                         div(class='col-sm-3')
                             p naam: #{val.naam}
                         div(class='col-sm-3')
@@ -16,4 +16,4 @@ block content
                         div(class='col-sm-6')
                             p Email Contactpersoon: #{val.email}
                 else
-                    li Er zijn geen leden in deze groep.
+                    div(class='row' style='margin:1%;') Er zijn geen leden in deze groep.

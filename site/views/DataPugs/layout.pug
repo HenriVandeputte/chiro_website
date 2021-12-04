@@ -9,22 +9,30 @@ html(lang='en')
 
     style.
       withline {text-decoration: underline; font: 200 17px/1.5 Helvetica, Verdana, sans-serif; }
-  body
+
+
+  body(style='background: #fff6af')
+    button.w3-button(style='background: #ffa680;')
+      a(href='/') Home
     div(class='container-fluid')
       div(class='row')
         div(class='col-sm-2')
           block sidebar
             ul(class='sidebar-nav' style='margin-top:100px')
               li
-                a(href='/data') Home
+                a.w3-button(href='/data' ) Hoofdpagina data
               li
-                a(href='/data/groepen') Alle groepen
+                a.w3-button(href='/data/groepen') Alle groepen
               li
-                a(href='/data/leiding') Alle leiding
+                a.w3-button(href='/data/leiding') Alle leiding
               li
-                a(href='/data/leden') All leden
+                a.w3-button(href='/data/leden') Alle leden
               li
-                a(href='/data/leider/create') Voeg nieuwe leider toe.
+                a.w3-button(href='/data/leider/create') Voeg nieuwe leider toe.
+              li
+                a.w3-button(href='/data/leider/delete') Bestaand leider verwijderen.
+              li
+                a.w3-button(href='/data/lid/delete') Bestaand lid verwijderen.
 
         div(class='col-sm-10')
           block content

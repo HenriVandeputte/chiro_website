@@ -1,15 +1,15 @@
 extends layout
 
 block content
-  h1= title
+  h1(style='font: bold 40px/1.5 Helvetica, Verdana, sans-serif;')= title
   p Welkom in de leidings sectie van de site. Hier zou u alle nodige informatie moeten terugvinden.
 
-  h2 Dynamische groepen:
-  ul
-    li
-      a(href='/data/groepen') #[strong Groepen:] !{data.groep_count}
-    li
-      a(href='/data/leiding') #[strong Leiding:] !{data.leider_count}
-    li
-      a(href='/data/leden') #[strong Leden:] !{data.lid_count}
+  h2(style='font:  30px/1.5 Helvetica, Verdana, sans-serif;') Dynamische groepen:
+  ul(style='border: 3px solid black;background: #ffa680; margin:1%; width:80%')
+    li(style='margin:1%')
+      a(href='/data/groepen' style='margin:1%') #[strong Groepen:] !{data.groep_count}
+    li(style='margin:1%')
+      a(href='/data/leiding' style='margin:1%') #[strong Leiding:] !{data.leider_count}
+    li(style='margin:1%')
+      a(href='/data/leden' style='margin:1%') #[strong Leden:] !{data.lid_count}
 
