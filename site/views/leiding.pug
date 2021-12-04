@@ -98,11 +98,12 @@ style.
         h1(style='font-weight: bold ;') #{groep.naam}
         .container
             each leidster in groep.leiding
-                div.card(style='width:200px;')
-                    img(src=leidster.fotolink  style='width:100%;height:200px; object-fit: cover')
-                    .container
-                        h3 #{leidster.naam}
-                        h4.title #{leidster.leeftijd} jaar
+                .column
+                    .card(style='width:200px;')
+                        img(src=leidster.fotolink  style='width:100%;height:200px; object-fit: cover')
+                        .container
+                            h3 #{leidster.naam}
+                            h4.title #{leidster.leeftijd} jaar
 
 
 
