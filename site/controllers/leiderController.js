@@ -28,7 +28,6 @@ exports.leider_create_post =[
     body('achternaam').trim().isLength({min: 1}).escape(),
     body('leeftijd').trim().escape(),
     body('groep').trim().isLength({min: 1}).escape(),
-    body('fotolink').trim().isLength({min: 1}).escape(),
 
 
     (req, res, next ) => {
