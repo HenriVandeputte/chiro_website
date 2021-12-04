@@ -5,7 +5,7 @@ const Groep = require("../models/groep");
 
 // Display list of all Leiding.
 exports.leider_list = function(req, res) {
-    Groep.find({}).sort({orde : 1}).populate('leiding').exec(function (err, list_groepen) {
+    Groep.find({}).sort({orde : 1}).populate({path: 'leiding', options: {sort:{'leeftijd': '-1'}}}).exec(function (err, list_groepen) {
         if (err) { return next(err); }
         //succesful, so render
         res.render('DataPugs/leider_list', {title: 'Leidsters', groepen_list: list_groepen});
