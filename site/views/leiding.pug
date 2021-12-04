@@ -29,6 +29,7 @@ style.
   .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 8px;
+
   }
   .about-section {
   padding: 50px;
@@ -37,7 +38,7 @@ style.
   color: white;
   }
   .container {
-  padding: 0 16px;
+  padding: 0 5%;
   }
   .container::after, .row::after {
   content: "";
@@ -92,17 +93,16 @@ style.
   h1(style='margin-top:50px') LEIDING CHIROMEISJES MARKE 2021-'22
   p Met trots stellen wij u de leidingsbende van 2021-'22 voor.
 
-div(style='margin-left:2%;')
+.container
     each groep in groep_list
         h1(style='font-weight: bold ;') #{groep.naam}
-        .row
-             each leidster in groep.leiding
-                    .column(style='defaultStatus')
-                        .card(style='width:200px;')
-                            img(src=leidster.fotolink  style='width:100%;height:200px; object-fit: cover')
-                            .container
-                                h3 #{leidster.naam}
-                                h4.title #{leidster.leeftijd} jaar
+        .container
+            each leidster in groep.leiding
+                div.card(style='width:200px;')
+                    img(src=leidster.fotolink  style='width:100%;height:200px; object-fit: cover')
+                    .container
+                        h3 #{leidster.naam}
+                        h4.title #{leidster.leeftijd} jaar
 
 
 
