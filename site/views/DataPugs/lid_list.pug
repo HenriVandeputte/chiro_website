@@ -8,8 +8,12 @@ block content
             li
                 h2 #{groep.naam}
                 each val in groep.leden
-                    p naam: #{val.naam}
-                        text(style='margin-left:150px;') leeftijd: #{val.leeftijd} jaar
-                            text(style='margin-left:150px;') Email Contactpersoon: #{val.email}
+                    div(class='row')
+                        div(class='col-sm-3')
+                            p naam: #{val.naam}
+                        div(class='col-sm-3')
+                            p leeftijd: #{val.leeftijd} jaar
+                        div(class='col-sm-6')
+                            p Email Contactpersoon: #{val.email}
                 else
                     li Er zijn geen leden in deze groep.

@@ -8,21 +8,22 @@ block content
             h3(style='font: bold 30px/1.5 Helvetica, Verdana, sans-serif;') #{groep.naam}
             ul(style='list-style-type:none;width:80%;')
                 each val, index in groep.leiding
-                    div(class=row)
+                    div(class='row')
                     if(index%2==0)
-                        div(class='col-sm-10')
+                        div(class='column')
                             li(style='background: #eeee; margin: 2%; padding: 10px;overflow: auto; ')
                                 img(src=val.fotolink style='float:right;margin:40px;height:200px;' )
                                 p(style='font: bold 20px/1.5 Helvetica, Verdana, sans-serif;') #{val.naam}
                                 p <withline>Leeftijd:</withline> #{val.leeftijd}
                                 p <withline>Groep:</withline> #{val.groep}
                     else if(index%2==1)
-                        div(class='col-sm-10')
+                        div(class='column')
                             li(style='background: #eeee; margin: 2%; padding: 10px;overflow: auto; ')
                                 img(src=val.fotolink style='float:right;margin:40px;height:200px;' )
                                 p(style='font: bold 20px/1.5 Helvetica, Verdana, sans-serif;') #{val.naam}
                                 p <withline>Leeftijd:</withline> #{val.leeftijd}
                                 p <withline>Groep:</withline> #{val.groep}
+                        div(class:'row')
 
 
 
