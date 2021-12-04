@@ -92,84 +92,21 @@ style.
   h1 LEIDING CHIROMEISJES MARKE 2021-'22
   p Met trots stellen wij u de leidingsbende van 2021-'22 voor.
 
-.row
-  .column
-    .card
-      img(src='/images/leiding/emma.jpg' alt='Jane' style='width:100%')
-      .container
-        h2 Emma Deleu
-        p.title Tiptiens 
-       
-    .card
-        img(src='/images/leiding/maaike.jpg' alt='Jane' style='width:100%')
-        .container
-          h2 Maaike
-          p.title Zwoebers
-    .card
-        img(src='/images/leiding/lotte.jpg' alt='Jane' style='width:100%')
-        .container
-          h2 Lotte
-          p.title Zwoebers 
-    .card
-        img(src='/images/leiding/merel.jpg' alt='Jane' style='width:100%')
-        .container
-          h2 Merel Missiaan
-          p.title Zwoebers 
-         
-  .column
-    .card
-      img(src="/images/leiding/elise.jpg" alt='Mike' style='width:100%')
-      .container
-        h2 Elise Vanhoonacker
-        p.title Tiptiens
-    .card
-        img(src='/images/leiding/emmac.jpg' alt='Jane' style='width:100%')
-        .container
-          h2 Emma Claeys
-          p.title Zwoebers 
-    .card
-        img(src='/images/leiding/emmad.jpg' alt='Jane' style='width:100%')
-        .container
-          h2 Emma Declercq
-          p.title Speelclub 
-    .card
-        img(src='/images/leiding/norah.jpg' alt='Jane' style='width:100%')
-        .container
-          h2 Norah Debrulle
-          p.title Speelclub 
-    .card
-        img(src='/images/leiding/olivia.jpg' alt='Jane' style='width:100%')
-        .container
-          h2 Olivia Vergote
-          p.title Speelclub 
-        
-  .column
-    .card
-      img(src='/images/leiding/hanne.jpg' alt='John' style='width:100%')
-      .container
-        h2 Hanne Santy
-        p.title Aspies
-    .card
-      img(src='/images/leiding/aline.jpg' alt='John' style='width:100%')
-      .container
-        h2 Aline Tijtgat
-        p.title Speelclub
-    .card
-      img(src='/images/leiding/axelle.jpg' alt='John' style='width:100%')
-      .container
-        h2 Axelle Derveaux
-        p.title Kwiks
-    .card
-      img(src='/images/leiding/britt.jpg' alt='John' style='width:100%')
-      .container
-        h2 Britt Vandevenne
-        p.title Kwiks
-    .card
-      img(src='/images/leiding/hannev.jpg' alt='John' style='width:100%')
-      .container
-        h2 Hanne Vancraeynest
-        p.title Kwiks
-        
+each groep in groep_list
+  h1(style='font-weight: bold ; margin-left:10%;margin-right:10% ') #{groep.naam}
+     .row
+         each leidster in groep.leiding
+                .column(style='defaultStatus')
+                    .card(style='width:200px;')
+                        img(src=leidster.fotolink  style='width:100%;height:200px; object-fit: cover')
+                        .container
+                            h3 #{leidster.naam}
+                            h4 #{leidster.leeftijd} jaar
+
+
+
+
+
 
 script.
 
