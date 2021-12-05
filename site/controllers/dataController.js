@@ -8,8 +8,8 @@ var lid_controller = require('./lidController');
 
 
 
-const isAuth = (req,res,next) =>{
-    if(req.session.isAuth){
+const Locked = (req,res,next) =>{
+    if(req.session.locked){
         next()
     } else {
         res.redirect('/login');
@@ -17,22 +17,22 @@ const isAuth = (req,res,next) =>{
 };
 
 // GET catalog home page.
-router.get('/', isAuth, groep_controller.index);  //This actually maps to /catalog/ because we import the route with a /catalog prefix
+router.get('/', Locked, groep_controller.index);  //This actually maps to /catalog/ because we import the route with a /catalog prefix
 
 
 /// GROEP ROUTES ///
 
 // GET request for creating a groep. NOTE This must come before routes that display Book (uses id).
-router.get('/groep/create',isAuth, groep_controller.groep_create_get);
+router.get('/groep/create',Locked, groep_controller.groep_create_get);
 
 // POST request for creating groep.
-router.post('/groep/create',isAuth, groep_controller.groep_create_post);
+router.post('/groep/create',Locked, groep_controller.groep_create_post);
 
 // GET request for one groep.
-router.get('/groep/:id',isAuth, groep_controller.groep_detail);
+router.get('/groep/:id',Locked, groep_controller.groep_detail);
 
 // GET request for list of all groep items.
-router.get('/groepen',isAuth, groep_controller.groep_list);
+router.get('/groepen',Locked, groep_controller.groep_list);
 
 
 
@@ -40,22 +40,22 @@ router.get('/groepen',isAuth, groep_controller.groep_list);
 /// LEIDER ROUTES ///
 
 // GET request for creating Leider. NOTE This must come before route for id (i.e. display Leider).
-router.get('/leider/create',isAuth, leider_controller.leider_create_get);
+router.get('/leider/create',Locked, leider_controller.leider_create_get);
 
 // POST request for creating leider.
-router.post('/leider/create',isAuth, leider_controller.leider_create_post);
+router.post('/leider/create',Locked, leider_controller.leider_create_post);
 
 
 // GET request to update leider.
-router.get('/leider/:id/update',isAuth, leider_controller.leider_update_get);
+router.get('/leider/:id/update',Locked, leider_controller.leider_update_get);
 
 // POST request to update leider.
-router.post('/leider/:id/update',isAuth, leider_controller.leider_update_post);
+router.post('/leider/:id/update',Locked, leider_controller.leider_update_post);
 
 // GET request for list of all leiders.
-router.get('/leiding',isAuth, leider_controller.leider_list_get);
+router.get('/leiding',Locked, leider_controller.leider_list_get);
 // GET request for list of all leiders.
-router.post('/leiding',isAuth, leider_controller.leider_list_post);
+router.post('/leiding',Locked, leider_controller.leider_list_post);
 
 
 
@@ -63,20 +63,20 @@ router.post('/leiding',isAuth, leider_controller.leider_list_post);
 /// LID ROUTES ///
 
 // GET request for creating a Lid. NOTE This must come before route that displays Lid (uses id).
-router.get('/lid/create',isAuth, lid_controller.lid_create_get);
+router.get('/lid/create',Locked, lid_controller.lid_create_get);
 
 //POST request for creating lid.
-router.post('/lid/create',isAuth, lid_controller.lid_create_post);
+router.post('/lid/create',Locked, lid_controller.lid_create_post);
 
 // GET request to delete lid.
-router.get('/lid/:id/delete',isAuth, lid_controller.lid_delete_get);
+router.get('/lid/:id/delete',Locked, lid_controller.lid_delete_get);
 
 // POST request to delete lid.
-router.post('/lid/:id/delete',isAuth, lid_controller.lid_delete_post);
+router.post('/lid/:id/delete',Locked, lid_controller.lid_delete_post);
 
 
 // GET request for list of all leden.
-router.get('/leden',isAuth, lid_controller.lid_list);
+router.get('/leden',Locked, lid_controller.lid_list);
 
 
 

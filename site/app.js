@@ -91,7 +91,7 @@ app.post("/login", async (req,res) => {
     if(!isMatch){
         return res.redirect('/login');
     }
-    req.session.isAuth = true;
+    req.session.locked = true;
     res.redirect('/data');
 });
 app.get("/register", (req,res) => {
