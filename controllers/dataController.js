@@ -22,12 +22,6 @@ router.get('/', Locked, groep_controller.index);  //This actually maps to /catal
 
 /// GROEP ROUTES ///
 
-// GET request for creating a groep. NOTE This must come before routes that display Book (uses id).
-router.get('/groep/create',Locked, groep_controller.groep_create_get);
-
-// POST request for creating groep.
-router.post('/groep/create',Locked, groep_controller.groep_create_post);
-
 // GET request for one groep.
 router.get('/groep/:id',Locked, groep_controller.groep_detail);
 
@@ -45,13 +39,6 @@ router.get('/leider/create',Locked, leider_controller.leider_create_get);
 // POST request for creating leider.
 router.post('/leider/create',Locked, leider_controller.leider_create_post);
 
-
-// GET request to update leider.
-router.get('/leider/:id/update',Locked, leider_controller.leider_update_get);
-
-// POST request to update leider.
-router.post('/leider/:id/update',Locked, leider_controller.leider_update_post);
-
 // GET request for list of all leiders.
 router.get('/leiding',Locked, leider_controller.leider_list_get);
 // GET request for list of all leiders.
@@ -61,12 +48,6 @@ router.post('/leiding',Locked, leider_controller.leider_list_post);
 
 
 /// LID ROUTES ///
-
-// GET request for creating a Lid. NOTE This must come before route that displays Lid (uses id).
-router.get('/lid/create',Locked, lid_controller.lid_create_get);
-
-//POST request for creating lid.
-router.post('/lid/create',Locked, lid_controller.lid_create_post);
 
 // GET request to delete lid.
 router.get('/lid/:id/delete',Locked, lid_controller.lid_delete_get);
