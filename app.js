@@ -11,10 +11,6 @@ const dotenv = require('dotenv')
 dotenv.config()
 
 
-const mongodbURI = "mongodb+srv://Chiro:Website123@cluster0.mwav5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-
-
-
 //Import the mongoose module
 const mongoose = require('mongoose');
 
@@ -48,6 +44,7 @@ const app = express();
 
 const UserModel = require('./models/User')
 const res = require("express");
+
 //cookies sessions
 app.use(session({
     secret: process.env.SECRET,
@@ -114,7 +111,7 @@ app.post("/register", async (req,res) => {
         password: hashedPsw,
     });
 
-    if(secretCode=="IkBeloofLeidingTeZijn") {
+    if(secretCode==process.env.SECRET_CODE) {
         await user.save();
         res.redirect('/login');
     } else {
