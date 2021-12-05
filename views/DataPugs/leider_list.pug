@@ -15,7 +15,7 @@ block content
                                 p(style='font: bold 20px/1.5 Helvetica, Verdana, sans-serif;') #{val.naam}
                                 p <withline>Leeftijd:</withline> #{val.leeftijd}
                                 p <withline>Groep:</withline> #{val.groep}
-                                form(action='/leiding/delete' method='POST')
+                                form(action='/data/leiding/delete' method='POST')
                                     input(type='hidden'  id='leiderId' name='leiderId'  value=val._id)
                                     button(type='submit') Verwijder Leider
         else
