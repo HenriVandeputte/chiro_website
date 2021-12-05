@@ -15,14 +15,8 @@ block content
                                 p(style='font: bold 20px/1.5 Helvetica, Verdana, sans-serif;') #{val.naam}
                                 p <withline>Leeftijd:</withline> #{val.leeftijd}
                                 p <withline>Groep:</withline> #{val.groep}
-                                a(href=val.url+'/delete') Verwijder Leider
-
-
-
-
-
-
-
-
+                                form(action='/data/leiding' method='POST')
+                                    input(type='hidden'  name='id'  value=val._id)
+                                    button(type='submit') Verwijder Leider
         else
             li Er zijn geen leidsters.

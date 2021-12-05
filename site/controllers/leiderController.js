@@ -1,3 +1,4 @@
+
 const Leider = require('../models/leider');
 const {body, validationResult} = require("express-validator");
 const Groep = require("../models/groep");
@@ -5,12 +6,32 @@ const async = require("async");
 
 
 // Display list of all Leiding.
-exports.leider_list = function(req, res) {
+exports.leider_list_get = function(req, res) {
     Groep.find({}).sort({orde : 1}).populate({path: 'leiding', options: {sort:{'leeftijd': '-1'}}}).exec(function (err, list_groepen) {
         if (err) { return next(err); }
         //succesful, so render
         res.render('DataPugs/leider_list', {title: 'Leidsters', groepen_list: list_groepen});
     });
+};
+
+exports.leider_list_post = (req, res) => {
+   const {id} = req.body;
+   leider = Leider.findById(id);
+   if(!leider){res.redirect('/data')}
+   else if(leider) {
+       Leider.findByIdAndDelete(id);
+
+       Groep.find({}).sort({orde: 1}).populate({
+           path: 'leiding',
+           options: {sort: {'leeftijd': '-1'}}
+       }).exec(function (err, list_groepen) {
+           if (err) {
+               return next(err);
+           }
+           //succesful, so render
+           res.render('DataPugs/leider_list', {title: 'Leidsters', groepen_list: list_groepen});
+       });
+   }
 };
 
 // Display Leiding create form on GET.

@@ -45,13 +45,6 @@ router.get('/leider/create',isAuth, leider_controller.leider_create_get);
 // POST request for creating leider.
 router.post('/leider/create',isAuth, leider_controller.leider_create_post);
 
-// GET request to delete leider.
-router.get('/leider/:id/delete',isAuth, leider_controller.leider_delete_post);
-
-// POST request to delete leider.
-router.post('/leider/:id/delete',isAuth, leider_controller.leider_delete_post);
-
-
 
 // GET request to update leider.
 router.get('/leider/:id/update',isAuth, leider_controller.leider_update_get);
@@ -60,7 +53,9 @@ router.get('/leider/:id/update',isAuth, leider_controller.leider_update_get);
 router.post('/leider/:id/update',isAuth, leider_controller.leider_update_post);
 
 // GET request for list of all leiders.
-router.get('/leiding',isAuth, leider_controller.leider_list);
+router.get('/leiding',isAuth, leider_controller.leider_list_get);
+// GET request for list of all leiders.
+router.post('/leiding',isAuth, leider_controller.leider_list_post);
 
 
 
@@ -79,14 +74,6 @@ router.get('/lid/:id/delete',isAuth, lid_controller.lid_delete_get);
 // POST request to delete lid.
 router.post('/lid/:id/delete',isAuth, lid_controller.lid_delete_post);
 
-// GET request to update lid.
-router.get('/lid/:id/update',isAuth, lid_controller.lid_update_get);
-
-// POST request to update lid.
-router.post('/lid/:id/update',isAuth, lid_controller.lid_update_post);
-
-// GET request for one lid.
-router.get('/lid/:id',isAuth, lid_controller.lid_detail);
 
 // GET request for list of all leden.
 router.get('/leden',isAuth, lid_controller.lid_list);
