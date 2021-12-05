@@ -10,13 +10,13 @@ exports.leider_list_get = function(req, res) {
     Groep.find({}).sort({orde : 1}).populate({path: 'leiding', options: {sort:{'leeftijd': '-1'}}}).exec(function (err, list_groepen) {
         if (err) { return next(err); }
         //succesful, so render
-        res.render('DataPugs/leider_list', {title: 'Leidsters', groepen_list: list_groepen});
+        res.render('DataPugs/leider_list', {title: 'Leiding', groepen_list: list_groepen});
     });
 };
 
-exports.leider_list_post = (req, res) => {
+exports.leider_list_post = (req, res, next) => {
    const {id} = req.body;
-   leider = Leider.findById(id);
+   let leider = Leider.findById(id);
    if(!leider){res.redirect('/data')}
    else if(leider) {
        Leider.findByIdAndDelete(id);
@@ -29,7 +29,7 @@ exports.leider_list_post = (req, res) => {
                return next(err);
            }
            //succesful, so render
-           res.render('DataPugs/leider_list', {title: 'Leidsters', groepen_list: list_groepen});
+           res.render('DataPugs/leider_list', {title: 'Leiding', groepen_list: list_groepen});
        });
    }
 };
@@ -89,25 +89,4 @@ exports.leider_create_post =[
     }
 ]
 
-// Display Leider delete form on GET.
-exports.leider_delete_get = function(req, res, next) {
 
-
-
-};
-
-// Handle Leiding delete on POST.
-exports.leider_delete_post = function(req, res, next) {
-
-};
-
-
-// Display Leiding update form on GET.
-exports.leider_update_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Leiding update GET');
-};
-
-// Handle Leiding update on POST.
-exports.leider_update_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Leiding update POST');
-};

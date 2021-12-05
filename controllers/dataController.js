@@ -41,19 +41,10 @@ router.post('/leider/create',Locked, leider_controller.leider_create_post);
 
 // GET request for list of all leiders.
 router.get('/leiding',Locked, leider_controller.leider_list_get);
+
 // GET request for list of all leiders.
-router.post('/leiding',Locked, leider_controller.leider_list_post);
+router.post('/leiding/delete',Locked, leider_controller.leider_list_post);
 
-
-
-
-/// LID ROUTES ///
-
-// GET request to delete lid.
-router.get('/lid/:id/delete',Locked, lid_controller.lid_delete_get);
-
-// POST request to delete lid.
-router.post('/lid/:id/delete',Locked, lid_controller.lid_delete_post);
 
 
 // GET request for list of all leden.

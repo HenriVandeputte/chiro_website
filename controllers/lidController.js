@@ -9,19 +9,10 @@ exports.lid_list = function(req, res) {
         if (err) { return next(err); }
         //succesful, so render
 
-        res.render('DataPugs/lid_list', {title: 'Leden list', groepen_list: list_groepen});
+        res.render('DataPugs/lid_list', {title: 'Leden lijst', groepen_list: list_groepen});
     });
 };
 
-// Display detail page for a specific Lid.
-exports.lid_detail = function(req, res) {
-    res.send('NOT IMPLEMENTED: Lid detail: ' + req.params.id);
-};
-
-// Display lid create form on GET.
-exports.lid_create_get = function(req, res) {
-    res.render('lid_form', { title: 'Create Lid' });
-};
 
 // Handle Groep create on POST.
 exports.lid_create_post =  [
