@@ -7,8 +7,13 @@ const logger = require('morgan');
 const session = require('express-session');
 const MongoDBSession = require('connect-mongodb-session')(session);
 
+const dotenv = require('dotenv')
+dotenv.config()
+
 
 const mongodbURI = "mongodb+srv://Chiro:Website123@cluster0.mwav5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
+
 
 //Import the mongoose module
 const mongoose = require('mongoose');
@@ -16,7 +21,7 @@ const mongoose = require('mongoose');
 
 //Set up default mongoose connection
 
-mongoose.connect(mongodbURI, {useNewUrlParser: true,  useUnifiedTopology: true})
+mongoose.connect(process.env.DB_CONNECT, {useNewUrlParser: true,  useUnifiedTopology: true})
     .then(()=>{
         console.log("MongoDB connected");
 });
@@ -28,7 +33,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 const store= new MongoDBSession({
-    uri: mongodbURI,
+    uri: process.env.DB_CONNECT,
     collection: "mySessions",
 })
 
@@ -45,7 +50,7 @@ const UserModel = require('./models/User')
 const res = require("express");
 //cookies sessions
 app.use(session({
-    secret: 'key that will sign cookie',
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
     store: store,
