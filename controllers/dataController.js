@@ -30,7 +30,6 @@ router.get('/groepen',Locked, groep_controller.groep_list);
 
 
 
-
 /// LEIDER ROUTES ///
 
 // GET request for creating Leider. NOTE This must come before route for id (i.e. display Leider).
@@ -46,10 +45,10 @@ router.get('/leiding',Locked, leider_controller.leider_list_get);
 router.post('/leiding/delete',Locked, leider_controller.leider_list_post);
 
 
-
 // GET request for list of all leden.
-router.get('/leden',Locked, lid_controller.lid_list);
-
+router.get('/leden',Locked, lid_controller.lid_list_get);
+// POST request for list of all leden.
+router.post('/leden/delete',Locked, lid_controller.lid_list_post);
 
 
 module.exports = router;

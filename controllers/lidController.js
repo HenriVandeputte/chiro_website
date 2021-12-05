@@ -4,7 +4,7 @@ const Groep = require("../models/groep");
 
 
 // Display list of all Leden.
-exports.lid_list = function(req, res) {
+exports.lid_list_get = function(req, res) {
     Groep.find({}).sort({orde : 1}).populate('leden').exec(function (err, list_groepen) {
         if (err) { return next(err); }
         //succesful, so render
@@ -61,22 +61,17 @@ exports.lid_create_post =  [
     }
 ];
 
-// Display Lid delete form on GET.
-exports.lid_delete_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Lid delete GET');
-};
+exports.lid_list_post = [
+    body('lidId').escape(),
+    (req, res) => {
+        req.body;
+        const lid = Lid.findById(req.body.lidId);
+        if(!lid){res.redirect('/data');}
+        else if(lid) {
+            Lid.deleteOne({_id: req.body.lidId}).then(result =>{
+                res.redirect('/data/leden');
+            });
+        }
+    }
+]
 
-// Handle Lid delete on POST.
-exports.lid_delete_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Lid delete POST');
-};
-
-// Display Lid update form on GET.
-exports.lid_update_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Lid update GET');
-};
-
-// Handle Lid update on POST.
-exports.lid_update_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Lid update POST');
-};

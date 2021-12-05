@@ -15,5 +15,8 @@ block content
                             p leeftijd: #{val.leeftijd} jaar
                         div(class='col-sm-6')
                             p Email Contactpersoon: #{val.email}
+                        form(action='/data/leden/delete' method='POST')
+                            input(type='hidden'  id='lidId' name='lidId'  value=val._id)
+                            button(type='submit') Verwijder Lid
                 else
                     div(class='row' style='margin:1%;') Er zijn geen leden in deze groep.
