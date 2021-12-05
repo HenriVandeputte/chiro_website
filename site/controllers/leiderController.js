@@ -1,4 +1,4 @@
-var Leider = require('../models/leider');
+const Leider = require('../models/leider');
 const {body, validationResult} = require("express-validator");
 const Groep = require("../models/groep");
 const async = require("async");
@@ -30,7 +30,7 @@ exports.leider_create_post =[
 
         const errors = validationResult(req);
 
-        var leider = new Leider(
+        const leider = new Leider(
             {
                 voornaam: req.body.voornaam,
                 achternaam: req.body.achternaam,
@@ -57,7 +57,7 @@ exports.leider_create_post =[
                         Groep.findOneAndUpdate(
                             { 'naam': req.body.groep },
                             { $push: {leiding : leider._id } },
-                            function (error, success) {
+                            function (error) {
                                 if (error) {return next(error);}
                             }
                         )
@@ -71,40 +71,13 @@ exports.leider_create_post =[
 // Display Leider delete form on GET.
 exports.leider_delete_get = function(req, res, next) {
 
-    async.parallel({
-        leider: function(callback) {
 
-        }
-    }, function(err, results) {
-        if (err) { return next(err); }
-        if (Leider.findById(req.params.id).exec(callback)==null) { // No results.
-            res.redirect('/data/leiding');
-        }
-        // Successful, so render.
-        res.render('DataPugs/leider_delete', {leider: results.leider} );
-    });
 
 };
 
 // Handle Leiding delete on POST.
 exports.leider_delete_post = function(req, res, next) {
 
-    async.parallel({
-        leider: function(callback) {
-            Leider.findById(req.body.leiderid).exec(callback)
-        },
-    }, function(err, results) {
-        if (err) { return next(err); }
-        // Success
-        else {
-            // Author has no books. Delete object and redirect to the list of authors.
-            Leider.findByIdAndRemove(req.body.leiderid, function deleteleider(err) {
-                if (err) { return next(err); }
-                // Success - go to author list
-                res.redirect('/data/leiding')
-            })
-        }
-    });
 };
 
 

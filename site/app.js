@@ -11,18 +11,18 @@ const MongoDBSession = require('connect-mongodb-session')(session);
 const mongodbURI = "mongodb+srv://Chiro:Website123@cluster0.mwav5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 //Import the mongoose module
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 
 //Set up default mongoose connection
 
 mongoose.connect(mongodbURI, {useNewUrlParser: true,  useUnifiedTopology: true})
-    .then((res)=>{
+    .then(()=>{
         console.log("MongoDB connected");
 });
 
 //Get the default connection
-var db = mongoose.connection;
+const db = mongoose.connection;
 
 //Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -32,16 +32,17 @@ const store= new MongoDBSession({
     collection: "mySessions",
 })
 
-var groepenRouter = require('./routes/groepen');
-var fotosRouter = require('./routes/fotos');
-var leidingRouter = require('./routes/leiding');
-var contacterenRouter = require('./routes/contacteren');
-var inschrijfRouter = require('./routes/inschrijven');
-var dataRouter = require('./controllers/dataController');
+const groepenRouter = require('./routes/groepen');
+const fotosRouter = require('./routes/fotos');
+const leidingRouter = require('./routes/leiding');
+const contacterenRouter = require('./routes/contacteren');
+const inschrijfRouter = require('./routes/inschrijven');
+const dataRouter = require('./controllers/dataController');
 
-var app = express();
+const app = express();
 
 const UserModel = require('./models/User')
+const res = require("express");
 //cookies sessions
 app.use(session({
     secret: 'key that will sign cookie',
@@ -134,7 +135,7 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function(err, req) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

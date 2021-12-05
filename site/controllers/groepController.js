@@ -1,6 +1,6 @@
-var Groep = require('../models/groep');
-var Leider = require('../models/leider');
-var Lid = require('../models/lid')
+const Groep = require('../models/groep');
+const Leider = require('../models/leider');
+const Lid = require('../models/lid');
 const { body,validationResult } = require('express-validator');
 const async = require('async');
 
@@ -42,7 +42,7 @@ exports.groep_detail = function(req, res, next) {
     }, function(err, results) {
         if (err) { return next(err); } // Error in API usage.
         if (results.groep==null) { // No results.
-            var err = new Error('Geen groep gevonden');
+            const err = new Error('Geen groep gevonden');
             err.status = 404;
             return next(err);
         }
@@ -69,14 +69,14 @@ exports.groep_create_post =  [
         const errors = validationResult(req);
 
         // Create a groep object with escaped and trimmed data.
-        var groep = new Groep(
-            { naam: req.body.naam }
+        const groep = new Groep(
+            {naam: req.body.naam}
         );
 
         if (!errors.isEmpty()) {
             // There are errors. Render the form again with sanitized values/error messages.
             res.render('DataPugs/groep_form', { title: 'Create Groep', groep: groep, errors: errors.array()});
-            return;
+
         }
         else {
             // Data from form is valid.

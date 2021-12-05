@@ -1,18 +1,18 @@
-var mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var GroepSchema = new Schema(
+const GroepSchema = new Schema(
     {
-        naam: {type: String, required: true },
-        leeftijd: {type: Array },
+        naam: {type: String, required: true},
+        leeftijd: {type: Array},
         leeftijdString: {type: String},
         leiding: [{type: Schema.Types.ObjectId, ref: 'Leider'}],
         leden: [{type: Schema.Types.ObjectId, ref: 'Lid'}],
         orde: {type: String},
         beschrijving: {type: String}
     }
-)
+);
 
 GroepSchema.virtual('url').get(function (){
     return '/groepen/' + this._id;

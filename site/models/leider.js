@@ -1,14 +1,18 @@
-var mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var LeiderSchema = new Schema(
+const LeiderSchema = new Schema(
     {
         voornaam: {type: String, required: true},
         achternaam: {type: String, required: true},
         leeftijd: {type: Number, required: true},
-        groep: {type: String, required: true, enum: ['Zwoebers', 'Speelclub', 'Kwiks', 'Tippers', 'Tiptiens', 'Aspies', 'Hoofdleiding']},
-        fotolink: {type: String, required: true }
+        groep: {
+            type: String,
+            required: true,
+            enum: ['Zwoebers', 'Speelclub', 'Kwiks', 'Tippers', 'Tiptiens', 'Aspies', 'Hoofdleiding']
+        },
+        fotolink: {type: String, required: true}
     }
 );
 

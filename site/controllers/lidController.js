@@ -1,6 +1,6 @@
-var Lid = require('../models/lid');
+const Lid = require('../models/lid');
 const {body, validationResult} = require("express-validator");
-var Groep = require("../models/groep");
+const Groep = require("../models/groep");
 
 
 // Display list of all Leden.
@@ -19,7 +19,7 @@ exports.lid_detail = function(req, res) {
 };
 
 // Display lid create form on GET.
-exports.lid_create_get = function(req, res, next) {
+exports.lid_create_get = function(req, res) {
     res.render('lid_form', { title: 'Create Lid' });
 };
 
@@ -36,14 +36,13 @@ exports.lid_create_post =  [
         const errors = validationResult(req);
 
         // Create a lid object with escaped and trimmed data.
-        var lid = new Lid(
-            { naam: req.body.name }
+        const lid = new Lid(
+            {naam: req.body.name}
         );
 
         if (!errors.isEmpty()) {
             // There are errors. Render the form again with sanitized values/error messages.
             res.render('lid_form', { title: 'Create Lid', lid: lid, errors: errors.array()});
-            return;
         }
         else {
             // Data from form is valid.
